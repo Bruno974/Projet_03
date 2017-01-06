@@ -16,7 +16,6 @@ class LouvreController extends Controller
     public function formulaireAction(Request $request)
     {
         $formulaire = new Formulaire();
-        //$formulaire->setCalendrier();
         $formulaire->setDuree(1);
         $formulaire->setMail('gont@gmail.com');
 
