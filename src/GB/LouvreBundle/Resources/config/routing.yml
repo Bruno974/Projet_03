@@ -7,5 +7,10 @@ gb_louvre_accueil:
     defaults: { _controller: GBLouvreBundle:Louvre:accueil}
 
 gb_louvre_billetterie:
-    path: /billeterie/formulaire
+    path: /billetterie/formulaire
     defaults: { _controller: GBLouvreBundle:Louvre:formulaire}
+
+
+gb_louvre_recapitulatif:
+    path: /billetterie/recapitulatif
+    defaults: { _controller: GBLouvreBundle:Louvre:recapitulatif}

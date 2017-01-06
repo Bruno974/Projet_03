@@ -1,7 +1,9 @@
 <?php
 namespace GB\LouvreBundle\Controller;
 
+use GB\LouvreBundle\Entity\Formulaire;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class LouvreController extends Controller
@@ -11,9 +13,24 @@ class LouvreController extends Controller
         return $this->render('GBLouvreBundle:Louvre:accueil.html.twig');
     }
 
-    public function formulaireAction()
+    public function formulaireAction(Request $request)
     {
-        return new Response("Affichage du formulaire");
+        $formulaire = new Formulaire();
+        //$formulaire->setCalendrier();
+        $formulaire->setDuree(1);
+        $formulaire->setMail('gont@gmail.com');
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($formulaire);
+        $em->flush();
+
+        if($request->isMethod('POST'))
+        {
+            $request->getSession()->getFlashBag()->add('notice', 'Visite bien enregistrée');
+            return $this->redirectToRoute('gb_louvre_recapitulatif', array('id' => $formulaire->getId()));
+        }
+
+        return $this->render('GBLouvreBundle:Louvre:formulaire.html.twig');
     }
 }
 
