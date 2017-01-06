@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>{% block title %}Billeterie{% endblock %}</title>
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            {% block stylesheets_enfant %}
+            {% endblock %}
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+    </head>
+
+    <body>
+
+        <div class="container-fluid">
+
+            <header class="row">
+                <div class="col-md-2 col-sm-1 hidden-xs">
+                    <img src="{{ asset('images/Logo_complet.png') }}" alt="logo">
+                </div>
+            </header>
+
+            {% block body %}
+            {% endblock %}
+
+        </div>
+
+        {% block javascripts %}
+
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/locales/bootstrap-datepicker.fr-CH.min.js" charset="UTF-8"></script>
+            <script src="{{ asset('js/calendrier.js') }}"></script>
+
+            {% block js_enfant %}
+            {% endblock %}
+
+        {% endblock %}
+
+    </body>
+</html>

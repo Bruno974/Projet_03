@@ -1,0 +1,11 @@
+#gb_louvre_homepage:
+ #   path:     /
+  #  defaults: { _controller: GBLouvreBundle:Default:index }
+
+gb_louvre_accueil:
+    path: /billetterie
+    defaults: { _controller: GBLouvreBundle:Louvre:accueil}
+
+gb_louvre_billetterie:
+    path: /billeterie/formulaire
+    defaults: { _controller: GBLouvreBundle:Louvre:formulaire}

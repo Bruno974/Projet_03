@@ -1,0 +1,156 @@
+
+body
+{
+    background-image: url("../images/Fond.jpg");
+}
+
+header
+{
+    height: 50px;
+    background-color: #6c6159;
+}
+
+
+legend
+{
+    text-align: center;
+}
+
+
+/*#calendrier
+{
+    text-align: center;
+    height: 445px;
+}*/
+
+
+#visite
+{
+    color: white;
+    /*font-size: 1.5em;*/
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+#demi
+{
+   margin-left: 225px;
+}
+
+hr
+{
+    width: 900px;
+}
+
+#nbreVisiteur
+{
+  height: 110px;
+}
+
+.valNbreVisiteur
+{
+    margin-left: 210px;
+    text-align: center;
+}
+
+#journee
+{
+   margin-left: 100px;
+}
+
+#visiteJour
+{
+    height: 110px;
+}
+
+#recap
+{
+    margin-left: 250px;
+    margin-top: 10px;
+}
+
+.centre
+{
+    text-align: center;
+    font-size: 1.3em;
+}
+
+.modifMoment
+{
+    text-align: center;
+}
+
+.modifNbreVisiteur
+{
+    text-align: center;
+}
+
+.modifDate
+{
+    text-align: center;
+}
+
+#bouton1
+{
+    margin-left: 50px;
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+/*---------Centrer le texte et le grossir pour datepicker------------------*/
+#gb_testbundle_visite_dateVisite
+{
+    text-align: center;
+    font-size: 1.3em;
+}
+
+/*-------Centrer input du calendrier----------------------------------*/
+#calendrierJS
+{
+    margin-left:25%;
+}
+
+/*-------Trait séparation court-------------------------------------*/
+#trait_court
+{
+    width: 75%;
+}
+
+/*-----------Titre------------------------------------------------*/
+h2
+{
+    font-size: 3em;
+    margin-top: 7%;
+    text-align: center;
+    color: white;
+    font-family: Georgia, Serif;
+    font-style: italic;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+/*---------------Decaler radio journée vers la gauche---------------------------------------------------*/
+#gb_testbundle_visite_momentVisite_0
+{
+    margin-left: -250%;
+}
+
+/*------------Decaler l'ensemble des radio pour les centrer----------------------------------------------*/
+#gb_testbundle_visite_momentVisite
+{
+    margin-left: 25%;
+}
+
+/*-----------Décaler le bouton valider pour centrer l'ensemble--------------------------------------------*/
+#gb_testbundle_visite_valider
+{
+    margin-left: 22%
+}
+
+/*----------Gestion message erreur--------------*/
+#erreur
+{
+    display: none;
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,45 @@
+body
+{
+    background-image: url("../images/Fond.jpg");
+}
+
+header
+{
+    height: 70px;
+    background-color: #939ca9;
+}
+
+h1
+{
+    color: white;
+    text-align: center;
+    font-size: 5em;
+    font-family: Georgia, Serif;
+    font-style: italic;
+    margin-top: 90px;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+p
+{
+    color: whitesmoke;
+    text-align: center;
+    font-size: 2.3em;
+    font-family: Georgia, Serif;
+    font-style: italic;
+    margin-top: 130px ;
+    text-shadow: black 0.1em 0.1em 0.2em
+}
+
+button
+{
+    margin-top: 150px;
+}
+
+footer
+{
+    position:absolute;
+    bottom: 0;
+    height: 60px;
+    background-color: #939ca9;
+}

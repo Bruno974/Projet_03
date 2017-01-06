@@ -1,0 +1,7 @@
+gb_louvre:
+    resource: "@GBLouvreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

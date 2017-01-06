@@ -1,0 +1,32 @@
+{% extends "GBLouvreBundle::layout.html.twig" %}
+
+{% block stylesheets_enfant %}
+    <link rel="stylesheet" href="{{ asset('css/accueil.css') }}">
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Bienvenue au musée du Louvre</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <p><strong>Vous allez pouvoir ici, grâce à cette application, acheter en avance vos billets
+                    et ainsi éviter de faire la queue aux guichets,
+                    le jour de votre visite. Allez-y cliquez sur le bouton Acheter et gagner du temps...</strong>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5">
+            <a href="{{ path('gb_louvre_billetterie')  }}"><button class="btn btn-warning btn-lg btn-block">Acheter</button></a>
+        </div>
+    </div>
+    
+{% endblock %}
+
