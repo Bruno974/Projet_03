@@ -1,0 +1,9 @@
+<p>Voici le résultat {{ formulaires.id }} </p>
+<p>{% for visiteur in formulaires.visiteurs %}
+        {{ visiteur.nom }}
+        {{ visiteur.prenom }}
+        {{ visiteur.pays }}
+        {{ visiteur.tarifReduit }}
+        {{ visiteur.dateNaissance }}
+    {% endfor %}
+</p>
