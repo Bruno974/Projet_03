@@ -58,6 +58,13 @@ class Visiteur
 
 
     /**
+     * @ORM\ManyToOne(targetEntity="GB\LouvreBundle\Entity\Formulaire")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $formulaire;
+
+
+    /**
      * Get id
      *
      * @return int
@@ -187,4 +194,3 @@ class Visiteur
         return $this->tarifReduit;
     }
 }
-
