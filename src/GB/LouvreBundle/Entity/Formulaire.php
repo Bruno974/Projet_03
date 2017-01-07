@@ -45,7 +45,7 @@ class Formulaire
 
 
     /**
-     * @ORM\OneToMany(targetEntity="GB\LouvreBundle\Entity\Visiteur", mappedBy="formulaire")
+     * @ORM\OneToMany(targetEntity="GB\LouvreBundle\Entity\Visiteur", mappedBy="formulaire", cascade={"persist"})
      */
     private $visiteurs;
 
@@ -149,8 +149,7 @@ class Formulaire
     public function addVisiteur(\GB\LouvreBundle\Entity\Visiteur $visiteur)
     {
         $this->visiteurs[] = $visiteur;
-
-        $visiteur->setFormulaire($this); //lie formulaire aux visiteur
+        $visiteur->setFormulaire($this);//lie formulaire aux visiteur
 
         return $this;
     }

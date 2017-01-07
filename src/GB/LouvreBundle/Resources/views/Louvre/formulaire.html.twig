@@ -4,5 +4,11 @@
 <h3>Selectionner la date de visite</h3>
 <div class="well">
     {{ form(form) }}
+    {{ form_row(form.visiteurs) }}
+    <a href="#" id="add_visiteur" class="btn btn-default">Ajouter un visiteur</a>
 </div>
+{% endblock %}
+
+{% block js_enfant %}
+    <script src="{{ asset('js/formVisiteur.js') }}"></script>
 {% endblock %}

@@ -201,7 +201,7 @@ class Visiteur
      *
      * @return Visiteur
      */
-    public function setFormulaire(\GB\LouvreBundle\Entity\Formulaire $formulaire)
+    public function setFormulaire(Formulaire $formulaire)
     {
         $this->formulaire = $formulaire;
 
