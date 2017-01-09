@@ -25,21 +25,44 @@ class LouvreController extends Controller
         $form->handleRequest($request);
         if ($request->isMethod('POST') && ($form->isValid()))
         {
-            /*--------------Recupere email----------------*/
-            $nom = $form->get('visiteurs')->getData();
+
+            //Récupére toutes les informations du formulaire visiteur et les liés au formulaire.
+            foreach ($form->get('visiteurs')->getData() as $visiteur)
+            {
+                $prenom = $visiteur->getPrenom();
+                //$age = $visiteur->getDateNaissance()->format('Y-m-d');
+                $formulaire->addVisiteur($visiteur);//lie
+            }
+            /*-------------------------------------------------------------------------------------------------------*/
+
+            /*--------------------Calcul age--------------------------------------------------------------------------*/
+            $visiteurAjoutes = $formulaire->getVisiteurs();
+
+            foreach ($form->get('visiteurs')->getData() as $visiteurAge)
+            {
+                $dateNaissanceVisiteur = $visiteurAge->getDateNaissance();
+                $now = new \DateTime();
+                $age = $now->diff($dateNaissanceVisiteur)->y;
+                var_dump($age);
+                echo $age;
+            }
+            /*--------------------------------------------------------------------------------------------------------*/
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($formulaire);
+            $em->flush();
+
+            /*--------------Envoie d'un email--------------------------------------------------------------------*/
 
             $message = \Swift_Message::newInstance()
-                ->setSubject('Hello Email')
+                ->setSubject('Confirmation de réservation des billets')
                 ->setFrom('cerveza_974@hotmail.com')
                 ->setTo('gont.bruno@gmail.com')
                 ->setBody(
-                   /* $this->renderView(
-                    // app/Resources/views/Emails/registration.html.twig
-                        'Emails/registration.html.twig',
-                        array('name' => $name)
-                    ),
-                    'text/html'*/
-                   $nom
+                    $this->renderView('@GBLouvre/Louvre/email.html.twig', array('prenom' => $age)),
+                    'text/html'
+                //$nom['nom']
                 )
                 /*
                  * If you also want to include a plaintext version of the message
@@ -53,20 +76,7 @@ class LouvreController extends Controller
                 */
             ;
             $this->get('mailer')->send($message);
-
-
-
-
-
-
-            //Récupére toutes les informations du formulaire visiteur.
-            foreach ($form->get('visiteurs')->getData() as $visiteur)
-            {
-                $formulaire->addVisiteur($visiteur);//lie
-            }
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($formulaire);
-            $em->flush();
+            /*--------------------------------------------------------------------------------------------------------*/
 
 
             $request->getSession()->getFlashBag()->add('notice', 'Visite bien enregistrée');
