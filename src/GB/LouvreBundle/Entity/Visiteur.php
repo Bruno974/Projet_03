@@ -56,6 +56,11 @@ class Visiteur
      */
     private $tarifReduit;
 
+    /**
+     * @ORM\Column(name="prix", type="integer")
+     */
+    private $prix;
+
 
     /**
      * @ORM\ManyToOne(targetEntity="GB\LouvreBundle\Entity\Formulaire", inversedBy="visiteurs")
@@ -216,5 +221,29 @@ class Visiteur
     public function getFormulaire()
     {
         return $this->formulaire;
+    }
+
+    /**
+     * Set prix
+     *
+     * @param integer $prix
+     *
+     * @return Visiteur
+     */
+    public function setPrix($prix)
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    /**
+     * Get prix
+     *
+     * @return integer
+     */
+    public function getPrix()
+    {
+        return $this->prix;
     }
 }
