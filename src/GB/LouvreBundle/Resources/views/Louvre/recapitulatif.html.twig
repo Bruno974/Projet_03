@@ -1,8 +1,35 @@
-<p>Voici le résultat {{ formulaires.id }} </p>
-<p>{% for visiteur in formulaires.visiteurs %}
-        {{ visiteur.nom }}
-        {{ visiteur.prenom }}
-        {{ visiteur.pays }}
-        {{ visiteur.tarifReduit }}
-    {% endfor %}
-</p>
+{% extends "GBLouvreBundle::layout.html.twig" %}
+
+{% block body %}
+    <section class="col-sm-8 col-sm-offset-2 table-responsive">
+        <table class="table table-bordered table-striped table-condensed well">
+            <caption>
+                <h4>Récapitulatif</h4>
+            </caption>
+            <thead>
+                <tr>
+                    <th>Visiteur</th>
+                    <th>Tarif</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {#<p>Voici le résultat {{ formulaires.id }} </p>#}
+                <p>{% for visiteur in formulaires.visiteurs %}
+                        <tr>
+                        <td>{{ visiteur.nom }} {{ visiteur.prenom }}</td>
+                        <td>{{ visiteur.pays }} </td>
+                            <td>{{ visiteur.prix }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <td></td>
+                        <td><strong>Total</strong></td>
+                        <td></td>
+                    </tr>
+                </p>
+            </tbody>
+        </table>
+    </section>
+{% endblock %}

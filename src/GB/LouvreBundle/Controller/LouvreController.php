@@ -30,41 +30,11 @@ class LouvreController extends Controller
                 $prenom = $visiteur->getPrenom();
                 $age = $visiteur->getDateNaissance()->format('Y-m-d');
 
-                $formulaire->addVisiteur($visiteur);//lie le formulaire à l'annonce
+                $formulaire->addVisiteur($visiteur);//lie le formulaire aux visiteurs
                 $this->get('gb_louvre.calculprixbillet')->calculPrix($visiteur); //Utilisation du service pour calculer le prix du billet selon l'age
 
             }
             /*-------------------------------------------------------------------------------------------------------*/
-
-            /*--------------------Calcul age--------------------------------------------------------------------------*/
-           /* $visiteurAjoutes = $formulaire->getVisiteurs();
-            $calcul=$this->get('gb_louvre.calculprixbillet');
-            $calcul->calculPrix($form);*/
-
-
-            /*foreach ($form->get('visiteurs')->getData() as $visiteurAge)
-            {
-                $dateNaissanceVisiteur = $visiteurAge->getDateNaissance(); // récupère date naissance du visiteur
-                $now = new \DateTime(); // créer la date du jour
-                $age = $now->diff($dateNaissanceVisiteur)->y; //compare la date aujourd'hui et la date naissance et calcul la différence
-
-                $prix = 16;
-
-                if ($age <= 4)
-                {
-                    $prix = 0;
-                } elseif ($age > 4 && $age < 12)
-                {
-                    $prix = 8;
-                } elseif ($age > 60)
-                {
-                    $prix = 12;
-                }
-
-                $visiteurAge->setPrix($prix);
-            }*/
-            /*--------------------------------------------------------------------------------------------------------*/
-
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($formulaire);
@@ -117,6 +87,37 @@ class LouvreController extends Controller
             'formulaires' => $formulaire,
             'listVisiteur' => $listVisiteurs
         ));
+    }
+
+    public function paiementAction()
+    {
+        return $this->render('GBLouvreBundle:Louvre:prepare.html.twig');
+    }
+
+    public function checkoutAction()
+    {
+
+        \Stripe\Stripe::setApiKey("sk_test_19YRLxBnf8HI9TP6lo1BVN9M");
+
+        // Get the credit card details submitted by the form
+        $token = $_POST['stripeToken'];
+
+        // Create a charge: this will charge the user's card
+        try {
+            $charge = \Stripe\Charge::create(array(
+                "amount" => 1500, // Amount in cents  //prix qui sera facturé
+                "currency" => "eur",
+                "source" => $token,
+                "description" => "Paiement Stripe - OpenClassrooms Exemple"
+            ));
+            $this->addFlash("success","Bravo ça marche !");
+            return $this->redirectToRoute("order_prepare");
+        } catch(\Stripe\Error\Card $e) {
+
+            $this->addFlash("error","Snif ça marche pas :(");
+            return $this->redirectToRoute("order_prepare");
+            // The card has been declined
+        }
     }
 }
 
