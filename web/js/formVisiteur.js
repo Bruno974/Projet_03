@@ -6,28 +6,34 @@
         // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
         var $container = $('div#gb_louvrebundle_formulaire_visiteurs');
 
+        //Diminution et décalage des inputs
+        $container.css('width','50%').css('margin-left', '25%');
+
+        //Décalage du bouton ajouter
+        $('#add_visiteur').css('margin-left', '42%');
+
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
         var index = $container.find(':input').length;
 
         // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
-        $('#add_visiteur').click(function(e) {
+        $('#add_visiteur').click(function(e)
+        {
             addCategory($container);
-
             e.preventDefault(); // évite qu'un # apparaisse dans l'URL
             return false;
         });
 
-        // On ajoute un premier champ automatiquement s'il n'en existe pas déjà un (cas d'une nouvelle annonce par exemple).
+        // On ajoute un premier champ automatiquement.
         if (index == 0) {
             addCategory($container);
         } else {
-            // S'il existe déjà des catégories, on ajoute un lien de suppression pour chacune d'entre elles
+            // On ajoute un lien de suppression pour chacune d'entre elles
             $container.children('div').each(function() {
                 addDeleteLink($(this));
             });
         }
 
-        // La fonction qui ajoute un formulaire CategoryType
+        // La fonction qui ajoute un formulaire
         function addCategory($container) {
             // Dans le contenu de l'attribut « data-prototype », on remplace :
             // - le texte "__name__label__" qu'il contient par le label du champ
@@ -50,7 +56,7 @@
             index++;
         }
 
-        // La fonction qui ajoute un lien de suppression d'une catégorie
+        // La fonction qui ajoute un lien de suppression
         function addDeleteLink($prototype) {
             // Création du lien
             var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
@@ -58,7 +64,7 @@
             // Ajout du lien
             $prototype.append($deleteLink);
 
-            // Ajout du listener sur le clic du lien pour effectivement supprimer la catégorie
+            // Ajout du listener sur le clic du lien pour effectivement supprimer le visiteur
             $deleteLink.click(function(e) {
                 $prototype.remove();
 

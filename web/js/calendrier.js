@@ -3,7 +3,7 @@ $(function() {
     $('.js-datepicker').datepicker({
         todayBtn: "linked",
         language: "fr",
-        daysOfWeekDisabled: "2",
+        daysOfWeekDisabled: "0,2",
         todayHighlight: true,
         autoclose: true,
         beforeShowDay: dateDesactive
@@ -46,8 +46,8 @@ $(function() {
     }
 
     /*-----------------------Récupère la date pour afficher ds le récapitulatif----------------------*/
-  $('#gb_testbundle_visite_dateVisite').change(function () {
-      var valDate = $('#gb_testbundle_visite_dateVisite').val();
+  $('#gb_louvrebundle_formulaire_calendrier').change(function () {
+      var valDate = $('#gb_louvrebundle_formulaire_calendrier').val();
       $('.modifDate').html(valDate);
 
 
@@ -61,7 +61,7 @@ $(function() {
       var mois    = ('0'+now.getMonth()+1).slice(-2);
       var jour    = ('0'+now.getDate()   ).slice(-2);
 
-      var valDate = $('#gb_testbundle_visite_dateVisite').val();
+      var valDate = $('#gb_louvrebundle_formulaire_calendrier').val();
       var date = jour + '.'  + mois + '.' + annee;
 
       if(valDate === date)
@@ -69,11 +69,11 @@ $(function() {
           if(heure >= 14)// Si heure supérieur à 14h00
           {
               /*---Désactive le bouton journée---*/
-              $('#gb_testbundle_visite_momentVisite_0').attr('checked', false);//Empêche de cocher la case
-              $('#gb_testbundle_visite_momentVisite_0').attr('disabled', 'disabled'); //désactiver le bouton
+              $('#gb_louvrebundle_formulaire_duree_0').attr('checked', false);//Empêche de cocher la case
+              $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', 'disabled'); //désactiver le bouton
 
               /*---Coche le bouton Demi-journée---*/
-              $('#gb_testbundle_visite_momentVisite_1').attr('checked', true);
+              $('#gb_louvrebundle_formulaire_duree_1').attr('checked', true);
               $('.modifMoment').html('Demi-Journée');
 
               /*---Affiche l'erreur---*/
@@ -82,9 +82,9 @@ $(function() {
       }
       else
       {
-          $('#gb_testbundle_visite_momentVisite_0').attr('checked', true);
-          $('#gb_testbundle_visite_momentVisite_0').attr('disabled', false); //permet de réafficher le bouton ds le cas d'un retour sur la date
-          $('#gb_testbundle_visite_momentVisite_1').attr('checked', false);
+          $('#gb_louvrebundle_formulaire_duree_0').attr('checked', true);
+          $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', false); //permet de réafficher le bouton ds le cas d'un retour sur la date
+          $('#gb_louvrebundle_formulaire_duree_1').attr('checked', false);
           //$('.modifMoment').html('Journée');//Affiche journée ds le récapitulatif
           $('#erreur').css('display', 'none');
       }

@@ -5,6 +5,7 @@ namespace GB\LouvreBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -19,7 +20,11 @@ class FormulaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('calendrier', DateType::class)
+            ->add('calendrier', DateTimeType::class, array('widget' => 'single_text',
+                    // do not render as type="date", to avoid HTML5 date pickers
+                    'html5' => true,
+                    // add a class that can be selected in JavaScript
+                    'attr' => ['class' => 'js-datepicker'],))
             ->add('duree', ChoiceType::class, array('choices' => array(
                 'Journee' => '1',
                 'Demi-journee' => '2'),

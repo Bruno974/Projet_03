@@ -1,14 +1,94 @@
 {% extends "GBLouvreBundle::layout.html.twig" %}
 
+{% block stylesheets_enfant %}
+    <link rel="stylesheet" href="{{ asset('css/formulaire.css') }}" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+
 {% block body %}
-<h3>Selectionner la date de visite</h3>
-<div class="well">
+    {#--------------------- Affichage du titre --------------------#}
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Formulaire de visite:</h2>
+            <hr>
+        </div>
+    </div>
+    {#------------------------------------------------------------#}
+
+    {#--------------------- Début du formulaire --------------------#}
+
+    {{ form_start(form,{'attr':  {'class': 'form-horizontal'}}) }}
+    {{ form_errors(form) }}
+
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            {#--------------------- Gestion calendrier --------------------#}
+            <div id="cadre" class="col-sm-12 well">
+                <legend>Calendrier</legend>
+                {{ form_errors(form.calendrier) }}
+                <div id= "calendrierJS" class="col-sm-6 col-sm-offset-2">
+                    {{ form_widget(form.calendrier) }}
+                </div>
+            </div>
+            {#------------------------------------------------------------#}
+
+            <hr id="trait_court">
+
+            {#------------------- Gestion billet journée ------------------#}
+            <div class="col-sm-12 well">
+                <legend>Durée de la visite</legend>
+                {{ form_errors(form.duree) }}
+                <div class="col-sm-8 col-sm-offset-4">
+                    {{ form_widget(form.duree, {'attr': {'class': 'form-inline jour'}}) }}
+                </div>
+            </div>
+            {#------------------------------------------------------------#}
+
+            {#-------------- Gestion message erreur du billet ------------#}
+            <div class="col-sm-12">
+                <div id="erreur" class="alert alert-danger"><p><strong>Vous ne pouvez pas sélectionne un billet jour, une fois que les 14h00 sont passé.</strong></p></div>
+            </div >
+            {#------------------------------------------------------------#}
+
+            <hr id="trait_court">
+
+            {#-------------- Gestion de l'email ------------#}
+            <div class="col-sm-12 well">
+                <legend>Email</legend>
+                {{ form_errors(form.mail) }}
+                <div class="col-sm-6 col-sm-offset-2 mail">
+                    {{ form_widget(form.mail, {'attr': {'class': 'form-control col-md-6 test' }}) }}
+                </div>
+            </div>
+            {#------------------------------------------------------------#}
+
+            <hr id="trait_court">
+
+            {#-------------- Gestion des visiteurs ------------#}
+            <div class="col-sm-12 well">
+                {{ form_row(form.visiteurs) }}
+                <a href="#" id="add_visiteur" class="btn btn-primary">Ajouter un visiteur</a>
+            </div>
+            {#------------------------------------------------------------#}
+
+            {#-------------- Gestion du bouton valider ------------#}
+            <div class="col-sm-12">
+                {{ form_widget(form.Valider, {'attr': {'class': 'btn btn-warning btn-lg valider'}})}}
+            </div>
+            {#------------------------------------------------------------#}
+
+        </div>
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+
+{#<div class="well">
     {{ form(form) }}
     {{ form_row(form.visiteurs) }}
     <a href="#" id="add_visiteur" class="btn btn-default">Ajouter un visiteur</a>
-</div>
+</div>#}
 {% endblock %}
 
 {% block js_enfant %}
     <script src="{{ asset('js/formVisiteur.js') }}"></script>
+    <script src="{{ asset('js/calendrier.js') }}"></script>
 {% endblock %}
