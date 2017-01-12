@@ -19,15 +19,16 @@
                 <p>{% for visiteur in formulaires.visiteurs %}
                         <tr>
                         <td>{{ visiteur.nom }} {{ visiteur.prenom }}</td>
-                        <td>{{ visiteur.pays }} </td>
+                        <td>{{ visiteur.tarif }} </td>
                             <td>{{ visiteur.prix }}</td>
                         </tr>
                     {% endfor %}
                     <tr>
                         <td></td>
                         <td><strong>Total</strong></td>
-                        <td></td>
+                        <td>{{ formulaires.total }}</td>
                     </tr>
+
                 </p>
             </tbody>
         </table>

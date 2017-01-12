@@ -21,7 +21,8 @@ class VisiteurType extends AbstractType
             ->add('prenom', TextType::class)
             ->add('pays', TextType::class)
             ->add('dateNaissance', DateType::class)
-            ->add('tarifReduit', CheckboxType::class);
+            ->add('tarifReduit', CheckboxType::class,array(
+                'required' => false,));
     }
     
     /**

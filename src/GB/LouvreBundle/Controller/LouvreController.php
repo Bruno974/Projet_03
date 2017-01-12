@@ -31,7 +31,7 @@ class LouvreController extends Controller
                 $age = $visiteur->getDateNaissance()->format('Y-m-d');
 
                 $formulaire->addVisiteur($visiteur);//lie le formulaire aux visiteurs
-                $this->get('gb_louvre.calculprixbillet')->calculPrix($visiteur); //Utilisation du service pour calculer le prix du billet selon l'age
+                $this->get('gb_louvre.calculprixbillet')->calculPrix($visiteur, $formulaire); //Utilisation du service pour calculer le prix du billet selon l'age
 
             }
             /*-------------------------------------------------------------------------------------------------------*/

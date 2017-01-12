@@ -63,6 +63,12 @@ class Visiteur
 
 
     /**
+     * @ORM\Column(name="tarif", type="string", length=255)
+     */
+    private $tarif;
+
+
+    /**
      * @ORM\ManyToOne(targetEntity="GB\LouvreBundle\Entity\Formulaire", inversedBy="visiteurs")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -246,4 +252,30 @@ class Visiteur
     {
         return $this->prix;
     }
+
+    /**
+     * Set tarif
+     *
+     * @param string $tarif
+     *
+     * @return Visiteur
+     */
+    public function setTarif($tarif)
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    /**
+     * Get tarif
+     *
+     * @return string
+     */
+    public function getTarif()
+    {
+        return $this->tarif;
+    }
+
+
 }

@@ -2,6 +2,7 @@
 
 namespace GB\LouvreBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,9 +43,14 @@ class Formulaire
      */
     private $mail;
 
+    /**
+     * @ORM\Column(name="total", type="integer")
+     */
+    private $total = 0;
+
 
     /**
-     * @ORM\OneToMany(targetEntity="GB\LouvreBundle\Entity\Visiteur", mappedBy="formulaire")
+     * @ORM\OneToMany(targetEntity="GB\LouvreBundle\Entity\Visiteur", mappedBy="formulaire", cascade={"persist"})
      */
     private $visiteurs;
 
@@ -52,6 +58,7 @@ class Formulaire
     public function __construct()
     {
         $this->calendrier = new \DateTime();
+        $this->visiteurs = new ArrayCollection();
     }
 
 
@@ -136,5 +143,39 @@ class Formulaire
     {
         return $this->mail;
     }
-}
 
+    /**
+     * Add visiteur
+     *
+     * @param \GB\LouvreBundle\Entity\Visiteur $visiteur
+     *
+     * @return Formulaire
+     */
+    public function addVisiteur(\GB\LouvreBundle\Entity\Visiteur $visiteur)
+    {
+        $this->visiteurs[] = $visiteur;
+        $visiteur->setFormulaire($this);//lie formulaire aux visiteur
+
+        return $this;
+    }
+
+    /**
+     * Remove visiteur
+     *
+     * @param \GB\LouvreBundle\Entity\Visiteur $visiteur
+     */
+    public function removeVisiteur(\GB\LouvreBundle\Entity\Visiteur $visiteur)
+    {
+        $this->visiteurs->removeElement($visiteur);
+    }
+
+    /**
+     * Get visiteurs
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getVisiteurs()
+    {
+        return $this->visiteurs;
+    }
+}

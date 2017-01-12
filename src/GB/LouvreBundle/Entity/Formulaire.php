@@ -43,6 +43,11 @@ class Formulaire
      */
     private $mail;
 
+    /**
+     * @ORM\Column(name="total", type="integer")
+     */
+    private $total = 0;
+
 
     /**
      * @ORM\OneToMany(targetEntity="GB\LouvreBundle\Entity\Visiteur", mappedBy="formulaire", cascade={"persist"})
@@ -172,5 +177,37 @@ class Formulaire
     public function getVisiteurs()
     {
         return $this->visiteurs;
+    }
+
+    /**
+     * Set total
+     *
+     * @param integer $total
+     *
+     * @return Formulaire
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return integer
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /*-----Fonction pour calculer le total du prix des billets--------------------------*/
+     public function calculTotal($prix)
+    {
+        $this->total += $prix;
+
+        return $this;
     }
 }
