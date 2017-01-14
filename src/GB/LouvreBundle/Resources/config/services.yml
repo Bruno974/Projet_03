@@ -6,3 +6,11 @@ services:
 
     gb_louvre.calculprixbillet:
         class: GB\LouvreBundle\Calculprixbillet\Calculprixbillet
+
+    gb_louvre.stripe:
+        class: GB\LouvreBundle\Stripe\Stripe
+
+  #  gb_louvre.mail:
+   #     class: GB\LouvreBundle\Mail\Mail
+    #        arguments:
+     #           - "@mailer"

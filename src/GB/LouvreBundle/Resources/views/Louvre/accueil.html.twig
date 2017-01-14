@@ -28,5 +28,12 @@
         </div>
     </div>
 
+    <div>
+        {# On affiche tous les messages flash dont le nom est « info » #}
+        {% for message in app.session.flashbag.get('success') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
+
 {% endblock %}
 

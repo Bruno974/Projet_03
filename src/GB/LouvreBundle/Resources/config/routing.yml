@@ -16,9 +16,9 @@ gb_louvre_recapitulatif:
     defaults: { _controller: GBLouvreBundle:Louvre:recapitulatif}
 
 order_prepare:
-    path: /order/prepare
+    path: /order/prepare/{id}
     defaults: { _controller: GBLouvreBundle:Louvre:paiement}
 
 order_checkout:
-    path: /order/checkout
+    path: /order/checkout/{total}
     defaults: { _controller: GBLouvreBundle:Louvre:checkout}
