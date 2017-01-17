@@ -10,7 +10,8 @@ services:
     gb_louvre.stripe:
         class: GB\LouvreBundle\Stripe\Stripe
 
-  #  gb_louvre.mail:
-   #     class: GB\LouvreBundle\Mail\Mail
-    #        arguments:
-     #           - "@mailer"
+    gb_louvre.mail:
+        class: GB\LouvreBundle\Mail\Mail
+        arguments:
+            - "@mailer"
+            - "@templating"

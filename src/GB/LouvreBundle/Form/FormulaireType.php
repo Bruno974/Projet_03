@@ -21,6 +21,7 @@ class FormulaireType extends AbstractType
     {
         $builder
             ->add('calendrier', DateTimeType::class, array('widget' => 'single_text',
+
                     // do not render as type="date", to avoid HTML5 date pickers
                     'html5' => true,
                     // add a class that can be selected in JavaScript

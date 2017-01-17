@@ -9,8 +9,6 @@ $(function() {
         beforeShowDay: dateDesactive
     });
 
-   /* $('.js-datepicker').css('font-size','1.3em').css('padding-left', '150px');*/
-
     function dateDesactive(date)
     {
         var jour = new Date().getDate(); //Récupère le jour en cours
@@ -27,7 +25,7 @@ $(function() {
             return false;
         }
 
-        if((date.getDate() == 1) && (date.getMonth() == 4)) ////jour férié 01/05
+        if((date.getDate() == 1) && (date.getMonth() == 4)) //jour férié 01/05
         {
             return false;
         }
@@ -46,11 +44,7 @@ $(function() {
     }
 
     /*-----------------------Récupère la date pour afficher ds le récapitulatif----------------------*/
-  $('#gb_louvrebundle_formulaire_calendrier').change(function () {
-      var valDate = $('#gb_louvrebundle_formulaire_calendrier').val();
-      $('.modifDate').html(valDate);
-
-
+    $('#gb_louvrebundle_formulaire_calendrier').change(function () {
 
       /*---Récupére l'heure courante---*/
       var now = new Date();
@@ -61,64 +55,27 @@ $(function() {
       var mois    = ('0'+now.getMonth()+1).slice(-2);
       var jour    = ('0'+now.getDate()   ).slice(-2);
 
-      var valDate = $('#gb_louvrebundle_formulaire_calendrier').val();
-      var date = jour + '.'  + mois + '.' + annee;
+      var valDate = $('#gb_louvrebundle_formulaire_calendrier').val();//Récupère la valeur de la date.
+      var date = jour + '.'  + mois + '.' + annee;//Mets au format la date du jour
 
-      if(valDate === date)
+      if((valDate === date) && (heure >= 08) )//Compare la date sélectionner et la date du jour et si heure supérieur à 14h00
       {
-          if(heure >= 14)// Si heure supérieur à 14h00
-          {
-              /*---Désactive le bouton journée---*/
-              $('#gb_louvrebundle_formulaire_duree_0').attr('checked', false);//Empêche de cocher la case
-              $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', 'disabled'); //désactiver le bouton
+          $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', 'disabled'); //Désactiver le radio Journée
+          $('#gb_louvrebundle_formulaire_duree_0').attr('checked', false); //Decoche la case Journée
+          $('#gb_louvrebundle_formulaire_duree_1').attr('checked', true); //Coche la case Demi-journée
 
-              /*---Coche le bouton Demi-journée---*/
-              $('#gb_louvrebundle_formulaire_duree_1').attr('checked', true);
-              $('.modifMoment').html('Demi-Journée');
+          /*---Affiche le message d'information---*/
+          $('#erreur').css('display', 'block');
 
-              /*---Affiche l'erreur---*/
-              $('#erreur').css('display', 'block');
-          }
       }
       else
       {
-          $('#gb_louvrebundle_formulaire_duree_0').attr('checked', true);
-          $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', false); //permet de réafficher le bouton ds le cas d'un retour sur la date
-          $('#gb_louvrebundle_formulaire_duree_1').attr('checked', false);
-          //$('.modifMoment').html('Journée');//Affiche journée ds le récapitulatif
-          $('#erreur').css('display', 'none');
+          $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', false); //permet de réactiver le bouton ds le cas d'un nouveau changement sur la date
+          $('#gb_louvrebundle_formulaire_duree_1').attr('checked', false); //Décoche la case Demi-Journée
+          $('#gb_louvrebundle_formulaire_duree_0').attr('checked', true); //Coche la case Journée
+
+          $('#erreur').css('display', 'none'); //désactive l'erreur
       }
 
   });
-    /*--------------------------------------------------------------------------------------*/
-
-    /*-----------------------Récupère le moment pour afficher ds le récapitulatif----------------------*/
-    $('#gb_testbundle_visite_momentVisite_0').click(function(){
-
-
-        $('.modifMoment').html('Journée');
-       /* alert (date);
-
-        if(heure >= 14)// Si heure supérieur à 14h00
-        {
-            $('#gb_testbundle_visite_momentVisite_0').attr('checked', false);//Empêche de cocher la case
-            $('#gb_testbundle_visite_momentVisite_0').attr('disabled', 'disabled'); //désactiver le bouton
-            $('#erreur').css('display', 'block');
-        }
-        else
-        {
-            $('.modifMoment').html('Journée');//Affiche journée ds le récapitulatif
-        }*/
-
-    });
-
-    $('#gb_testbundle_visite_momentVisite_1').click(function(){
-        $('.modifMoment').html('Demi-Journée');
-        $('#erreur').css('display', 'none');
-    });
-
-    /*-----------------------Récupère le nbre visiteur pour afficher ds le récapitulatif----------------------*/
-    $('#gb_testbundle_visite_nbreVisiteur').change(function(){
-        $('.modifNbreVisiteur').html( $('#gb_testbundle_visite_nbreVisiteur').val());
-    });
 });

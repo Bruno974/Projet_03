@@ -13,18 +13,24 @@ class Calculprixbillet
             $tarif = 'Tarif normal';
 
 
-            if ($age <= 4)
+            if ($age < 4)
             {
                 $prix = 0;
-                $tarif = 'Tarif enfant';
-            } elseif ($age > 4 && $age < 12)
+                $tarif = 'Gratuit';
+            } elseif ($age >= 4 && $age <= 12)
             {
                 $prix = 8;
-                $tarif = 'Tarif ado';
-            } elseif ($age > 60)
+                $tarif = 'Tarif enfant';
+            } elseif ($age >= 60)
             {
                 $prix = 12;
-                $tarif = 'Tarif vieux';
+                $tarif = 'Tarif senior';
+            }
+
+            if($visiteurAge->getTarifReduit()) // Si la case Tarif réduit est cochée.
+            {
+                $prix = $prix-10;    //Rabait de 10 euros
+                $tarif = "Tarif réduit";
             }
 
             //Hydrate prix

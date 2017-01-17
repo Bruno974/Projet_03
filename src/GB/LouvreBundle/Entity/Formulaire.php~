@@ -23,9 +23,8 @@ class Formulaire
     private $id;
 
     /**
-     * @var \DateTime
      *
-     * @ORM\Column(name="calendrier", type="datetimetz")
+     * @ORM\Column(name="calendrier", type="datetime")
      */
     private $calendrier;
 
@@ -57,7 +56,7 @@ class Formulaire
 
     public function __construct()
     {
-        $this->calendrier = new \DateTime();
+       // $this->calendrier = new \DateTime();
         $this->visiteurs = new ArrayCollection();
     }
 
@@ -71,30 +70,7 @@ class Formulaire
     {
         return $this->id;
     }
-
-    /**
-     * Set calendrier
-     *
-     * @param \DateTime $calendrier
-     *
-     * @return Formulaire
-     */
-    public function setCalendrier($calendrier)
-    {
-        $this->calendrier = $calendrier;
-
-        return $this;
-    }
-
-    /**
-     * Get calendrier
-     *
-     * @return \DateTime
-     */
-    public function getCalendrier()
-    {
-        return $this->calendrier;
-    }
+    
 
     /**
      * Set duree
@@ -177,5 +153,61 @@ class Formulaire
     public function getVisiteurs()
     {
         return $this->visiteurs;
+    }
+
+    /**
+     * Set total
+     *
+     * @param integer $total
+     *
+     * @return Formulaire
+     */
+    public function setTotal($total)
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * Get total
+     *
+     * @return integer
+     */
+    public function getTotal()
+    {
+        return $this->total;
+    }
+
+    /*-----Fonction pour calculer le total du prix des billets--------------------------*/
+     public function calculTotal($prix)
+    {
+        $this->total += $prix;
+
+        return $this;
+    }
+
+    /**
+     * Set calendrier
+     *
+     * @param \DateTime $calendrier
+     *
+     * @return Formulaire
+     */
+    public function setCalendrier($calendrier)
+    {
+        $this->calendrier = $calendrier;
+
+        return $this;
+    }
+
+    /**
+     * Get calendrier
+     *
+     * @return \DateTime
+     */
+    public function getCalendrier()
+    {
+        return $this->calendrier;
     }
 }

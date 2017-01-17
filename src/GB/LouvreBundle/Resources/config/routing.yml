@@ -20,5 +20,5 @@ order_prepare:
     defaults: { _controller: GBLouvreBundle:Louvre:paiement}
 
 order_checkout:
-    path: /order/checkout/{total}
+    path: /order/checkout/{id}
     defaults: { _controller: GBLouvreBundle:Louvre:checkout}

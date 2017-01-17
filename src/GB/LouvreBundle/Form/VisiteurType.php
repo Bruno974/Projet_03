@@ -27,7 +27,8 @@ class VisiteurType extends AbstractType
             ])
             ->add('dateNaissance', BirthdayType::class)
             ->add('tarifReduit', CheckboxType::class,array(
-                'required' => false,));
+                'required' => false,
+                'label' => 'Tarif réduit *'));
     }
     
     /**

@@ -23,9 +23,8 @@ class Formulaire
     private $id;
 
     /**
-     * @var \DateTime
      *
-     * @ORM\Column(name="calendrier", type="datetimetz")
+     * @ORM\Column(name="calendrier", type="datetime")
      */
     private $calendrier;
 
@@ -57,7 +56,7 @@ class Formulaire
 
     public function __construct()
     {
-        $this->calendrier = new \DateTime();
+       // $this->calendrier = new \DateTime();
         $this->visiteurs = new ArrayCollection();
     }
 
@@ -71,30 +70,7 @@ class Formulaire
     {
         return $this->id;
     }
-
-    /**
-     * Set calendrier
-     *
-     * @param \DateTime $calendrier
-     *
-     * @return Formulaire
-     */
-    public function setCalendrier($calendrier)
-    {
-        $this->calendrier = $calendrier;
-
-        return $this;
-    }
-
-    /**
-     * Get calendrier
-     *
-     * @return \DateTime
-     */
-    public function getCalendrier()
-    {
-        return $this->calendrier;
-    }
+    
 
     /**
      * Set duree
@@ -209,5 +185,29 @@ class Formulaire
         $this->total += $prix;
 
         return $this;
+    }
+
+    /**
+     * Set calendrier
+     *
+     * @param \DateTime $calendrier
+     *
+     * @return Formulaire
+     */
+    public function setCalendrier($calendrier)
+    {
+        $this->calendrier = $calendrier;
+
+        return $this;
+    }
+
+    /**
+     * Get calendrier
+     *
+     * @return \DateTime
+     */
+    public function getCalendrier()
+    {
+        return $this->calendrier;
     }
 }

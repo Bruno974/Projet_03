@@ -1,39 +1,32 @@
 <?php
 namespace GB\LouvreBundle\Mail;
 
+use Symfony\Component\Templating\EngineInterface;
+
 class Mail
 {
-     private $mailer;
+     protected $mailer;
+     protected $templating;
 
-     public function __construct(\Swift_Mailer $mailer)
+     public function __construct(\Swift_Mailer $mailer, $templating)
      {
          $this->mailer = $mailer;
+         $this->templating = $templating; //Pour pouvoir utiliser le render
      }
 
-     public function mail()
+     public function mail($form)
      {
-
+$age= 10;
          $message = \Swift_Message::newInstance()
              ->setSubject('Confirmation de réservation des billets')
-             ->setFrom('cerveza_974@hotmail.com')
-             ->setTo('gont.bruno@gmail.com')
+             ->setFrom('gont.bruno@gmail.com')
+             ->setTo($form->getMail())
+             ->setContentType('text/html') //évite d'avoir du code html ds le mail
              ->setBody(
-                 $this->renderView('@GBLouvre/Louvre/email.html.twig', array('prenom' => $age)),
-                 'text/html'
-             //$nom['nom']
-             )
-             /*
-              * If you also want to include a plaintext version of the message
-             ->addPart(
-                 $this->renderView(
-                     'Emails/registration.txt.twig',
-                     array('name' => $name)
-                 ),
-                 'text/plain'
-             )
-             */
-         ;
-         $this->get('mailer')->send($message);
+                $this->templating->render('@GBLouvre/Louvre/email.html.twig', array('prenom' => $age))
+             );
+
+         $this->mailer->send($message);
      }
 }
 
