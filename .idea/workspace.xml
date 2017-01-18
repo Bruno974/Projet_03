@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03dcf24-25fc-4e94-a0c0-a7bdc112855c" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php" afterPath="$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php" afterPath="$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GB/LouvreBundle/Mail/Mail.php" afterPath="$PROJECT_DIR$/src/GB/LouvreBundle/Mail/Mail.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/email.html.twig" afterPath="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/email.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig" afterPath="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/formulaire.css" afterPath="$PROJECT_DIR$/web/css/formulaire.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/js/formVisiteur.js" afterPath="$PROJECT_DIR$/web/js/formVisiteur.js" />
     </list>
     <ignored path="Imbriquer.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,37 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LouvreController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-250">
-              <caret line="27" column="96" selection-start-line="27" selection-start-column="96" selection-end-line="27" selection-end-column="96" />
-              <folding>
-                <element signature="e#1742#1769#1#PHP" expanded="true" />
-                <element signature="e#1828#1853#1#PHP" expanded="true" />
-                <element signature="e#2199#2226#1#PHP" expanded="true" />
-                <element signature="e#3094#3121#1#PHP" expanded="true" />
-                <element signature="e#3180#3205#1#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="email.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="email.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/email.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="layout.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/layout.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="106" />
+            <state relative-caret-position="339">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -70,31 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/config/services.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mail.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Mail.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Mail/Mail.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Formulaire.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Formulaire.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2050">
-              <caret line="117" column="29" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="29" />
+            <state relative-caret-position="369">
+              <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
               <folding />
             </state>
           </provider>
@@ -103,13 +63,12 @@
       <file leaf-file-name="prepare.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/prepare.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="232">
+              <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
               <folding>
-                <element signature="e#1270#1284#0#Twig" expanded="true" />
-                <marker date="1484648064244" expanded="true" signature="1985:3323" ph="{% block stylesheets ...%}" />
-                <marker date="1484648064244" expanded="true" signature="2019:3307" ph="..." />
-                <marker date="1484648064244" expanded="true" signature="2850:3295" ph="{...}" />
+                <marker date="1484736422867" expanded="true" signature="1985:3323" ph="{% block stylesheets ...%}" />
+                <marker date="1484736422867" expanded="true" signature="2019:3307" ph="..." />
+                <marker date="1484736422867" expanded="true" signature="2850:3295" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -118,18 +77,65 @@
       <file leaf-file-name="Calculprixbillet.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Calculprixbillet/Calculprixbillet.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
+            <state relative-caret-position="686">
+              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Visiteur.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Visiteur.php">
+      <file leaf-file-name="formulaire.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
-              <caret line="202" column="36" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="36" />
+            <state relative-caret-position="1015">
+              <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LouvreController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="52" column="128" selection-start-line="52" selection-start-column="128" selection-end-line="52" selection-end-column="128" />
+              <folding>
+                <element signature="e#1526#1553#1#PHP" expanded="true" />
+                <element signature="e#2575#2602#1#PHP" expanded="true" />
+                <element signature="e#2661#2686#1#PHP" expanded="true" />
+                <element signature="e#3032#3059#1#PHP" expanded="true" />
+                <element signature="e#3927#3954#1#PHP" expanded="true" />
+                <element signature="e#4013#4038#1#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FormulaireType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="182">
+              <caret line="22" column="29" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Formulaire.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Formulaire.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="673">
+              <caret line="208" column="33" selection-start-line="208" selection-start-column="20" selection-end-line="208" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="formVisiteur.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/js/formVisiteur.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="29">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -155,26 +161,26 @@
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/app/config/config_dev.yml" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/web/css/formulaire.css" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Visiteur.php" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/recapitulatif.html.twig" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/accueil.html.twig" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Stripe/Stripe.php" />
         <option value="$PROJECT_DIR$/web/js/Formulaire_Visiteur.js" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Form/VisiteurType.php" />
-        <option value="$PROJECT_DIR$/web/js/formVisiteur.js" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Formulaire.php" />
-        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php" />
         <option value="$PROJECT_DIR$/web/js/calendrier.js" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/prepare.html.twig" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Calculprixbillet/Calculprixbillet.php" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/config/services.yml" />
+        <option value="$PROJECT_DIR$/web/css/formulaire.css" />
+        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php" />
+        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig" />
+        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/prepare.html.twig" />
+        <option value="$PROJECT_DIR$/web/js/formVisiteur.js" />
+        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/email.html.twig" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php" />
         <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Mail/Mail.php" />
-        <option value="$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/email.html.twig" />
       </list>
     </option>
   </component>
@@ -216,7 +222,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -264,6 +269,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Imbriquer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Imbriquer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -523,6 +546,32 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Imbriquer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Imbriquer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GB" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LouvreBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Calculprixbillet" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -562,10 +611,11 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet_recup/projet1" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunManager">
@@ -640,12 +690,15 @@
       <workItem from="1484379570666" duration="4800000" />
       <workItem from="1484504514797" duration="9700000" />
       <workItem from="1484582077145" duration="2787000" />
-      <workItem from="1484641775231" duration="10007000" />
+      <workItem from="1484641775231" duration="10866000" />
+      <workItem from="1484684243686" duration="4570000" />
+      <workItem from="1484731425008" duration="4835000" />
+      <workItem from="1484737720805" duration="4909000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135891000" />
+    <option name="totallyTimeSpent" value="151064000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -696,11 +749,12 @@
         <state relative-caret-position="870">
           <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
-            <element signature="e#1742#1769#1#PHP" expanded="true" />
-            <element signature="e#1828#1853#1#PHP" expanded="true" />
-            <element signature="e#2199#2226#1#PHP" expanded="true" />
-            <element signature="e#3094#3121#1#PHP" expanded="true" />
-            <element signature="e#3180#3205#1#PHP" expanded="true" />
+            <element signature="e#1526#1553#1#PHP" expanded="true" />
+            <element signature="e#2575#2602#1#PHP" expanded="true" />
+            <element signature="e#2661#2686#1#PHP" expanded="true" />
+            <element signature="e#3032#3059#1#PHP" expanded="true" />
+            <element signature="e#3927#3954#1#PHP" expanded="true" />
+            <element signature="e#4013#4038#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -766,11 +820,12 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#1742#1769#1#PHP" expanded="true" />
-            <element signature="e#1828#1853#1#PHP" expanded="true" />
-            <element signature="e#2199#2226#1#PHP" expanded="true" />
-            <element signature="e#3094#3121#1#PHP" expanded="true" />
-            <element signature="e#3180#3205#1#PHP" expanded="true" />
+            <element signature="e#1526#1553#1#PHP" expanded="true" />
+            <element signature="e#2575#2602#1#PHP" expanded="true" />
+            <element signature="e#2661#2686#1#PHP" expanded="true" />
+            <element signature="e#3032#3059#1#PHP" expanded="true" />
+            <element signature="e#3927#3954#1#PHP" expanded="true" />
+            <element signature="e#4013#4038#1#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -887,13 +942,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/formulaire.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1769">
-          <caret line="61" column="14" selection-start-line="61" selection-start-column="14" selection-end-line="61" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/services.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -939,35 +987,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding>
-            <element signature="e#40#80#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/calendrier.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2291">
           <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/formVisiteur.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="71" selection-start-line="6" selection-start-column="71" selection-end-line="6" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1486">
-          <caret line="93" column="59" selection-start-line="93" selection-start-column="59" selection-end-line="93" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -983,21 +1006,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="638">
           <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Calculprixbillet/Calculprixbillet.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="26" column="38" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Visiteur.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
+        <state relative-caret-position="5858">
           <caret line="202" column="36" selection-start-line="202" selection-start-column="20" selection-end-line="202" selection-end-column="36" />
           <folding />
         </state>
@@ -1007,28 +1021,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php">
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="27" column="96" selection-start-line="27" selection-start-column="96" selection-end-line="27" selection-end-column="96" />
-          <folding>
-            <element signature="e#1742#1769#1#PHP" expanded="true" />
-            <element signature="e#1828#1853#1#PHP" expanded="true" />
-            <element signature="e#2199#2226#1#PHP" expanded="true" />
-            <element signature="e#3094#3121#1#PHP" expanded="true" />
-            <element signature="e#3180#3205#1#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="290">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="106" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Formulaire.php">
+    <entry file="file://$PROJECT_DIR$/web/css/formulaire.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2050">
-          <caret line="117" column="29" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="29" />
+        <state relative-caret-position="261">
+          <caret line="9" column="47" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -1041,39 +1047,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/formulaire.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="106" />
+        <state relative-caret-position="1015">
+          <caret line="35" column="57" selection-start-line="35" selection-start-column="57" selection-end-line="35" selection-end-column="57" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/prepare.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+        <state relative-caret-position="232">
+          <caret line="8" column="37" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
           <folding>
-            <element signature="e#1270#1284#0#Twig" expanded="true" />
-            <marker date="1484648064244" expanded="true" signature="1985:3323" ph="{% block stylesheets ...%}" />
-            <marker date="1484648064244" expanded="true" signature="2019:3307" ph="..." />
-            <marker date="1484648064244" expanded="true" signature="2850:3295" ph="{...}" />
+            <marker date="1484736422867" expanded="true" signature="1985:3323" ph="{% block stylesheets ...%}" />
+            <marker date="1484736422867" expanded="true" signature="2019:3307" ph="..." />
+            <marker date="1484736422867" expanded="true" signature="2850:3295" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Mail/Mail.php">
+    <entry file="file://$PROJECT_DIR$/web/js/formVisiteur.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="20" column="68" selection-start-line="20" selection-start-column="68" selection-end-line="20" selection-end-column="68" />
+        <state relative-caret-position="29">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Calculprixbillet/Calculprixbillet.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="686">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Form/FormulaireType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="22" column="29" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Entity/Formulaire.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="208" column="33" selection-start-line="208" selection-start-column="20" selection-end-line="208" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Controller/LouvreController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="52" column="128" selection-start-line="52" selection-start-column="128" selection-end-line="52" selection-end-column="128" />
+          <folding>
+            <element signature="e#1526#1553#1#PHP" expanded="true" />
+            <element signature="e#2575#2602#1#PHP" expanded="true" />
+            <element signature="e#2661#2686#1#PHP" expanded="true" />
+            <element signature="e#3032#3059#1#PHP" expanded="true" />
+            <element signature="e#3927#3954#1#PHP" expanded="true" />
+            <element signature="e#4013#4038#1#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Resources/views/Louvre/email.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        <state relative-caret-position="339">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GB/LouvreBundle/Mail/Mail.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
           <folding />
         </state>
       </provider>

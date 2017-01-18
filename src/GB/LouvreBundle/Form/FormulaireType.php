@@ -35,7 +35,8 @@ class FormulaireType extends AbstractType
                 array(
                     'entry_type' => VisiteurType::class,
                     'allow_add' => true,
-                    'allow_delete' => true
+                    'allow_delete' => true,
+                    'label' => ' '
                 ))
             ->add('Valider', SubmitType::class);
     }

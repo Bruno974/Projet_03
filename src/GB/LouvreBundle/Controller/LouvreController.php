@@ -33,9 +33,24 @@ class LouvreController extends Controller
             }
 
             $em = $this->getDoctrine()->getManager();
+            /*------------Test--------------------------*/
+
+            $placePrise = 0;
+            $dateJour = $form->get('calendrier')->getData(); //Récupére la date sélectionner ds le formulaire
+            $nombreIds = $em->getRepository('GBLouvreBundle:Formulaire')->findBy(array('calendrier' => $dateJour)); //Récupére les données à partir de cette date,  exemple recup 5 date et tou ces données
+            foreach ($nombreIds as $nbre) //Boucle sur le nombre de date, ex boucle 5 fois
+            {
+                foreach ($nbre->getVisiteurs() as $visiteurAj) // Boucle sur le nombre de visiteur dans une date
+                {
+                    $placePrise ++;
+                }
+            }
+            var_dump($placePrise);
+            /*---------------------------------------*/
+
             $em->persist($formulaire);
             $em->flush();
-            return $this->redirectToRoute('order_prepare', array('id' => $formulaire->getId()));  //gb_louvre_recapitulatif
+            return $this->redirectToRoute('order_prepare', array('id' => $formulaire->getId())/*, array('test' => $placePrise)*/);  //gb_louvre_recapitulatif
         }
         return $this->render('GBLouvreBundle:Louvre:formulaire.html.twig', array('form' => $form->createView()));
     }

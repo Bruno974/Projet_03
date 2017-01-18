@@ -7,7 +7,7 @@ body
 header
 {
     height: 50px;
-    background-color: #6c6159;
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -75,7 +75,9 @@ h2
 legend
 {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.25em;
+    font-weight: bold;
+    font-style: italic;
 }
 
 /*--------Reduire la taille du trait sous le titre--------*/
@@ -88,6 +90,12 @@ hr
 .mail
 {
     margin-left: 25%;
+}
+
+/*-----Gérer fon formulaire__________*/
+.well
+{
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 

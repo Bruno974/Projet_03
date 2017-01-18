@@ -23,7 +23,7 @@
             return false;
         });
 
-        // On ajoute un premier champ automatiquement.
+        // On ajoute un premier visiteur automatiquement.
         if (index == 0) {
             addCategory($container);
         } else {
@@ -59,7 +59,8 @@
         // La fonction qui ajoute un lien de suppression
         function addDeleteLink($prototype) {
             // Création du lien
-            var $deleteLink = $('<a href="#" class="btn btn-danger">Supprimer</a>');
+            var $deleteLink = $('<a href="#" class="glyphicon glyphicon-remove"></a>');
+            $deleteLink.css('margin-left', '90%').css('color', 'red').css('font-size', '25px').css('top', '70%');
 
             // Ajout du lien
             $prototype.append($deleteLink);
