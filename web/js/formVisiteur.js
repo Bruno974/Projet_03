@@ -59,8 +59,8 @@
         // La fonction qui ajoute un lien de suppression
         function addDeleteLink($prototype) {
             // Création du lien
-            var $deleteLink = $('<a href="#" class="glyphicon glyphicon-remove"></a>');
-            $deleteLink.css('margin-left', '90%').css('color', 'red').css('font-size', '25px').css('top', '70%');
+            var $deleteLink = $('<a href="#" class="glyphicon glyphicon-remove btn btn-danger"></a>'); //glyphicon glyphicon-remove
+            $deleteLink.css('float', 'right');//.css('color', 'red').css('font-size', '25px').css('top', '70%');
 
             // Ajout du lien
             $prototype.append($deleteLink);
@@ -73,4 +73,18 @@
                 return false;
             });
         }
+
+        $("#gb_louvrebundle_formulaire_calendrier").change(function(){
+            $.ajax({
+                url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $(this).val(),
+                //data: 'day='+($('#calendrierJS').val()),
+                success: function(data) {
+                    $('#Billets').html(data+' place(s) disponible(s)'); },
+                error: function() {
+                    alert('Erreur avec la requête Ajax'); }
+            });
+        });
+       // #Billets
+       // #calendrierJS
+
     });

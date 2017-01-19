@@ -22,3 +22,7 @@ order_prepare:
 order_checkout:
     path: /order/checkout/{id}
     defaults: { _controller: GBLouvreBundle:Louvre:checkout}
+
+gb_louvre_ajax:
+    path: /billetterie/formulaire/ajax/{date}
+    defaults: { _controller: GBLouvreBundle:Louvre:ajax}

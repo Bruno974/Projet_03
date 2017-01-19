@@ -31,7 +31,7 @@
             </div>
             {#------------------------------------------------------------#}
 
-            {#-------------- Gestion message erreur du billet ------------#}
+            {#-------------- Gestion place disponible du billet ------------#}
             <div class="col-sm-12">
                 <div id="Billets" class="alert alert-info"><p><strong>50 places disponibles.</strong></p></div>
             </div >
@@ -73,13 +73,13 @@
             <div class="col-sm-12 well">
                 <legend>Visiteur</legend>
                 {{ form_row(form.visiteurs) }}
-                <a href="#" id="add_visiteur" class="btn btn-primary">Ajouter un visiteur</a>
+                <a href="#" id="add_visiteur" class="btn btn-primary"> Ajouter un visiteur</a>
             </div>
             {#------------------------------------------------------------#}
 
             {#-------------- Gestion du bouton valider ------------#}
             <div class="col-sm-12">
-                <p>* Sur présentation des pièces justificatives</p>
+                <p id="Justificatif">* Sur présentation des pièces justificatives</p>
                 {{ form_widget(form.Valider, {'attr': {'class': 'btn btn-warning btn-lg valider'}})}}
             </div>
             {#------------------------------------------------------------#}

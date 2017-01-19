@@ -5,6 +5,7 @@ use GB\LouvreBundle\Entity\Formulaire;
 use GB\LouvreBundle\Entity\Visiteur;
 use GB\LouvreBundle\Form\FormulaireType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -14,6 +15,28 @@ class LouvreController extends Controller
     public function accueilAction()
     {
         return $this->render('GBLouvreBundle:Louvre:accueil.html.twig');
+    }
+
+    public function ajaxAction(Request $request, $date)
+    {
+        $dateobj = new \DateTime($date);
+        $em = $this->getDoctrine()->getManager();
+        $reserve = $em->getRepository('GBLouvreBundle:Formulaire')->findBy(array('calendrier' => $dateobj));
+        $placePrise = 0;
+
+        foreach ($reserve as $nbre) //Boucle sur le nombre de date, ex boucle 5 fois
+        {
+            foreach ($nbre->getVisiteurs() as $visiteurAj) // Boucle sur le nombre de visiteur dans une date
+            {
+                $placePrise++;
+            }
+        }
+
+        if ($request->isXmlHttpRequest())
+        {
+            return new Response(1000-$placePrise);
+        }
+        return new Response('Problème avec Ajax', 400);
     }
 
     public function formulaireAction(Request $request)
@@ -34,18 +57,20 @@ class LouvreController extends Controller
 
             $em = $this->getDoctrine()->getManager();
             /*------------Test--------------------------*/
-
-            $placePrise = 0;
-            $dateJour = $form->get('calendrier')->getData(); //Récupére la date sélectionner ds le formulaire
-            $nombreIds = $em->getRepository('GBLouvreBundle:Formulaire')->findBy(array('calendrier' => $dateJour)); //Récupére les données à partir de cette date,  exemple recup 5 date et tou ces données
-            foreach ($nombreIds as $nbre) //Boucle sur le nombre de date, ex boucle 5 fois
+           /* if ($request->isXmlHttpRequest())
             {
-                foreach ($nbre->getVisiteurs() as $visiteurAj) // Boucle sur le nombre de visiteur dans une date
+                $placePrise = 0;
+                $dateJour = $form->get('calendrier')->getData(); //Récupére la date sélectionner ds le formulaire
+                $nombreIds = $em->getRepository('GBLouvreBundle:Formulaire')->findBy(array('calendrier' => $dateJour)); //Récupére les données à partir de cette date,  exemple recup 5 date et tou ces données
+                foreach ($nombreIds as $nbre) //Boucle sur le nombre de date, ex boucle 5 fois
                 {
-                    $placePrise ++;
+                    foreach ($nbre->getVisiteurs() as $visiteurAj) // Boucle sur le nombre de visiteur dans une date
+                    {
+                        $placePrise++;
+                    }
                 }
             }
-            var_dump($placePrise);
+            var_dump($placePrise);*/
             /*---------------------------------------*/
 
             $em->persist($formulaire);
