@@ -25,15 +25,15 @@
             <div id="cadre" class="col-sm-12 well">
                 <legend>Calendrier</legend>
                 {{ form_errors(form.calendrier) }}
-                <div id= "calendrierJS" class="col-sm-6 col-sm-offset-2">
-                    {{ form_widget(form.calendrier) }}
+                <div id= "calendrierJS" class="col-sm-6 col-sm-offset-2" >
+                    {{ form_widget(form.calendrier, {'attr': {'placeholder': 'Choisissez une date' }}) }}
                 </div>
             </div>
             {#------------------------------------------------------------#}
 
             {#-------------- Gestion place disponible du billet ------------#}
             <div class="col-sm-12">
-                <div id="Billets" class="alert alert-info"><p><strong>50 places disponibles.</strong></p></div>
+                <div id="Billets" class="alert alert-info"><p><strong></strong></p></div>
             </div >
             {#------------------------------------------------------------#}
 
@@ -72,7 +72,8 @@
             {#-------------- Gestion des visiteurs ------------#}
             <div class="col-sm-12 well">
                 <legend>Visiteur</legend>
-                {{ form_row(form.visiteurs) }}
+                {{ form_row(form.visiteurs, {'attr': {'class': 'testVisiteur' }}) }}
+                <hr>
                 <a href="#" id="add_visiteur" class="btn btn-primary"> Ajouter un visiteur</a>
             </div>
             {#------------------------------------------------------------#}

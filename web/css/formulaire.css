@@ -1,12 +1,16 @@
 body
 {
-    background-image: url("../images/Fond.jpg");
-    background-attachment:fixed;
+    background: url("../images/Fond.jpg") no-repeat center center fixed;
+    /*compatibilité navigateur*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
 }
 
 header
 {
-    height: 50px;
+    height: 70px;
     background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -40,7 +44,7 @@ h2
     color: white;
     font-family: Georgia, Serif;
     font-style: italic;
-    text-shadow: black 0.1em 0.1em 0.2em
+    text-shadow: black 0.1em 0.1em 0.2em;
 }
 
 /*---------------Decaler radio journée vers la gauche---------------------------------------------------*/
@@ -53,6 +57,7 @@ h2
 #gb_louvrebundle_formulaire_duree
 {
     margin-left: 40%;
+    font-size: 1.2em;
 }
 
 /*-----------Décaler le bouton valider pour centrer l'ensemble--------------------------------------------*/
@@ -97,6 +102,25 @@ hr
 {
     background-color: rgba(255, 255, 255, 0.6);
 }
+
+/*----------Gérer le message d'information sur les places disponibles-----------------------*/
+#Billets
+{
+    text-align: center;
+}
+
+/*-------------------Gérer la phrase pour les justificatifs-----------------------*/
+#Justificatif
+{
+    color: white;
+    font-weight: bold;
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
+
+
+
+
+
 
 
 

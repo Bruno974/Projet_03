@@ -43,11 +43,21 @@
                     .replace(/__name__/g,        index)
                 ;
 
+
             // On crée un objet jquery qui contient ce template
             var $prototype = $(template);
 
+
             // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
             addDeleteLink($prototype);
+
+            //Ajout d'un trait + modif taille du trait aprés le premier visiteur ajouté
+            if(index != 0)
+            {
+                $container.append('<hr class="testo">');
+                $('.testo').css('width', '70%');
+            }
+
 
             // On ajoute le prototype modifié à la fin de la balise <div>
             $container.append($prototype);
@@ -59,7 +69,7 @@
         // La fonction qui ajoute un lien de suppression
         function addDeleteLink($prototype) {
             // Création du lien
-            var $deleteLink = $('<a href="#" class="glyphicon glyphicon-remove btn btn-danger"></a>'); //glyphicon glyphicon-remove
+            var $deleteLink = $('<a href="#" class="glyphicon glyphicon-trash btn btn-danger"></a>'); //glyphicon glyphicon-remove
             $deleteLink.css('float', 'right');//.css('color', 'red').css('font-size', '25px').css('top', '70%');
 
             // Ajout du lien
@@ -74,17 +84,32 @@
             });
         }
 
+        //$('#gb_louvrebundle_formulaire_visiteurs_0_tarifReduit').css('font-weight', 'bold');
+
+        /*gestion ajax pour les 1000 billets*/
         $("#gb_louvrebundle_formulaire_calendrier").change(function(){
             $.ajax({
                 url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $(this).val(),
                 //data: 'day='+($('#calendrierJS').val()),
                 success: function(data) {
-                    $('#Billets').html(data+' place(s) disponible(s)'); },
+                    $('#Billets').html(data+' place(s) disponible(s)');
+                    /*----test-----*/
+                if(data < 980)
+                {
+                    $('#Billets').attr('class','alert alert-danger');
+                    $('#Billets').html('Plus aucune place de libre, choisissez une autre date');
+                    $('#gb_louvrebundle_formulaire_calendrier').val('');
+                }
+                else
+                {
+                    $('#Billets').attr('class','alert alert-success');
+                    $('#Billets').html(data+' place(s) disponible(s)');
+                }
+                /*-----------------*/
+                },
                 error: function() {
                     alert('Erreur avec la requête Ajax'); }
             });
         });
-       // #Billets
-       // #calendrierJS
 
     });
