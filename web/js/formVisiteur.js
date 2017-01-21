@@ -86,30 +86,33 @@
 
         //$('#gb_louvrebundle_formulaire_visiteurs_0_tarifReduit').css('font-weight', 'bold');
 
+
         /*gestion ajax pour les 1000 billets*/
         $("#gb_louvrebundle_formulaire_calendrier").change(function(){
-            $.ajax({
-                url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $(this).val(),
-                //data: 'day='+($('#calendrierJS').val()),
-                success: function(data) {
-                    $('#Billets').html(data+' place(s) disponible(s)');
-                    /*----test-----*/
-                if(data < 980)
-                {
-                    $('#Billets').attr('class','alert alert-danger');
-                    $('#Billets').html('Plus aucune place de libre, choisissez une autre date');
-                    $('#gb_louvrebundle_formulaire_calendrier').val('');
-                }
-                else
-                {
-                    $('#Billets').attr('class','alert alert-success');
-                    $('#Billets').html(data+' place(s) disponible(s)');
-                }
-                /*-----------------*/
-                },
-                error: function() {
-                    alert('Erreur avec la requête Ajax'); }
-            });
+            if($(this).val() != "") //Si champs calendrier différent de vide, pour éviter d'avoir un message d'erreur lors de l'ouverture de la page
+            {
+                $.ajax({
+                    url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $(this).val(),
+                    success: function(data) {
+                    if(data < 980) //Si nombre place disponible = 0
+                    {
+                        //Efface la date entrer et message erreur
+                        $('#Billets').attr('class','alert alert-danger');
+                        $('#Billets').html('Plus aucune place de libre, choisissez une autre date');
+                        $('#gb_louvrebundle_formulaire_calendrier').val('');
+                    }
+                    else
+                    {
+                        //Affiche le nombre de place disponible
+                        $('#Billets').attr('class','alert alert-success');
+                        $('#Billets').html(data+' place(s) disponible(s)');
+                    }
+                    /*-----------------*/
+                    },
+                    error: function() {
+                        alert('Erreur avec la requête Ajax'); }
+                });
+            }
         });
 
     });
