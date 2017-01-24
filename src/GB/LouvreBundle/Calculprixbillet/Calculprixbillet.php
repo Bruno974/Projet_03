@@ -6,7 +6,11 @@ class Calculprixbillet
     public function calculPrix($visiteurAge, $formulaire)
     {
             $dateNaissanceVisiteur = $visiteurAge->getDateNaissance(); // récupère date naissance du visiteur
-            $now = new \DateTime(); // créer la date du jour
+
+           /*A réfléchir mais il faut récupérer la date choisi pour le calcul*/
+          //  $now = new \DateTime(); // créer la date du jour
+        $now = $formulaire->getCalendrier();
+        var_dump($now);
             $age = $now->diff($dateNaissanceVisiteur)->y; //compare la date aujourd'hui et la date naissance et calcul la différence
 
             $prix = 16;
@@ -29,7 +33,7 @@ class Calculprixbillet
 
             if($visiteurAge->getTarifReduit()) // Si la case Tarif réduit est cochée.
             {
-                $prix = $prix-10;    //Rabait de 10 euros
+                $prix = 10;    //Prix billet de 10 euros
                 $tarif = "Tarif réduit";
             }
 

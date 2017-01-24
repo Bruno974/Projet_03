@@ -56,22 +56,6 @@ class LouvreController extends Controller
             }
 
             $em = $this->getDoctrine()->getManager();
-            /*------------Test--------------------------*/
-           /* if ($request->isXmlHttpRequest())
-            {
-                $placePrise = 0;
-                $dateJour = $form->get('calendrier')->getData(); //Récupére la date sélectionner ds le formulaire
-                $nombreIds = $em->getRepository('GBLouvreBundle:Formulaire')->findBy(array('calendrier' => $dateJour)); //Récupére les données à partir de cette date,  exemple recup 5 date et tou ces données
-                foreach ($nombreIds as $nbre) //Boucle sur le nombre de date, ex boucle 5 fois
-                {
-                    foreach ($nbre->getVisiteurs() as $visiteurAj) // Boucle sur le nombre de visiteur dans une date
-                    {
-                        $placePrise++;
-                    }
-                }
-            }
-            var_dump($placePrise);*/
-            /*---------------------------------------*/
 
             $em->persist($formulaire);
             $em->flush();
@@ -88,10 +72,12 @@ class LouvreController extends Controller
         $formulaire = $em->getRepository('GBLouvreBundle:Formulaire')->find($id);
 
         $listVisiteurs = $em->getRepository('GBLouvreBundle:Visiteur')->findBy(array('formulaire' => $formulaire));
-
+        $calendrier = $formulaire->getCalendrier(); //Récupére la date
+        $date = $calendrier->format('d:m:Y'); //formate la date en string
         return $this->render('GBLouvreBundle:Louvre:prepare.html.twig', array(
             'formulaires' => $formulaire,
-            'listVisiteur' => $listVisiteurs
+            'listVisiteur' => $listVisiteurs,
+            'date' => $date
         ));
 
     }

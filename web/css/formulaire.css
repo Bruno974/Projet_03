@@ -112,6 +112,8 @@ hr
 /*-------------------Gérer la phrase pour les justificatifs-----------------------*/
 #Justificatif
 {
+    display: none;
+    font-size: 1.2em;
     color: white;
     font-weight: bold;
     text-shadow: black 0.1em 0.1em 0.2em;
