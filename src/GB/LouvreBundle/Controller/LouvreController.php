@@ -19,22 +19,12 @@ class LouvreController extends Controller
 
     public function ajaxAction(Request $request, $date)
     {
-        $dateobj = new \DateTime($date);
-        $em = $this->getDoctrine()->getManager();
-        $reserve = $em->getRepository('GBLouvreBundle:Formulaire')->findBy(array('calendrier' => $dateobj));
-        $placePrise = 0;
-
-        foreach ($reserve as $nbre) //Boucle sur le nombre de date, ex boucle 5 fois
-        {
-            foreach ($nbre->getVisiteurs() as $visiteurAj) // Boucle sur le nombre de visiteur dans une date
-            {
-                $placePrise++;
-            }
-        }
+        //Récupére le nombre de place restant grâce aux services
+        $placePrise = $this->get('gb_louvre.ajax')->milleBillets($date);
 
         if ($request->isXmlHttpRequest())
         {
-            return new Response(1000-$placePrise);
+            return new Response($placePrise);
         }
         return new Response('Problème avec Ajax', 400);
     }

@@ -15,3 +15,8 @@ services:
         arguments:
             - "@mailer"
             - "@templating"
+
+    gb_louvre.ajax:
+        class: GB\LouvreBundle\Ajax\Ajax
+        arguments:
+            - "@doctrine.orm.entity_manager"
