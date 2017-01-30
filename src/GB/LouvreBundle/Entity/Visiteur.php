@@ -3,6 +3,7 @@
 namespace GB\LouvreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Visiteur
@@ -25,6 +26,7 @@ class Visiteur
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
+     * @Assert\Length(min=2, minMessage="Le titre doit faire au moins {{ limit }} caractères.")
      */
     private $nom;
 
@@ -32,6 +34,7 @@ class Visiteur
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
+     * @Assert\Length(min=1)
      */
     private $prenom;
 
@@ -45,7 +48,7 @@ class Visiteur
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateNaissance", type="datetime")
+     * @ORM\Column(name="dateNaissance", type="date")
      */
     private $dateNaissance;
 

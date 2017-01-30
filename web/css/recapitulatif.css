@@ -1,0 +1,63 @@
+body
+{
+    background: url("../images/Fond.jpg") no-repeat center center fixed;
+    /*compatibilité navigateur*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+header
+{
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+
+/*-----------------------------------------------------------------------------------------------------------------*/
+
+
+/*-------Trait séparation court-------------------------------------*/
+#trait_court
+{
+    width: 75%;
+}
+
+
+/*--------Reduire la taille du trait sous le titre--------*/
+hr
+{
+    width: 900px;
+}
+
+/*-----Gérer fon formulaire__________*/
+.well
+{
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*----------Gérer le message d'information sur les places disponibles-----------------------*/
+#paiement
+{
+    text-align: center;
+    margin-top: 30%;
+    font-size: 1.2em;
+}
+
+#confirmation
+{
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+
+
+
+
+
+
+
+
+

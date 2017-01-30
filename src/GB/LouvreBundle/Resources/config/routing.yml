@@ -12,7 +12,7 @@ gb_louvre_billetterie:
 
 
 gb_louvre_recapitulatif:
-    path: /billetterie/recapitulatif/{id}
+    path: /billetterie/recapitulatif
     defaults: { _controller: GBLouvreBundle:Louvre:recapitulatif}
 
 order_prepare:

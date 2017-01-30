@@ -30,15 +30,16 @@ hr
     width: 60%;
 }
 
+/*---------------------Paragraphe de prsentation-----------------*/
 p
 {
-    color: whitesmoke;
+    color: white;
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: Georgia, Serif;
     font-style: italic;
-    margin-top: 5% ;
-    text-shadow: black 0.1em 0.1em 0.2em
+    /*margin-top: 5% ;*/
+    text-shadow: black 0.1em 0.1em 0.1em
 }
 
 button
@@ -46,10 +47,15 @@ button
     margin-top: 150px;
 }
 
-footer
+/*-----------------Renseignements sur les tarifs------------------------*/
+#renseignements
 {
-    position:absolute;
-    bottom: 0;
-    height: 60px;
-    background-color: #939ca9;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/*---------Cadre autour renseignement---------------------------*/
+.well
+{
+    background-color: rgba(255, 255, 255, 0.8);
 }

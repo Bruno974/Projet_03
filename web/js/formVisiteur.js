@@ -48,7 +48,7 @@
         $container.css('width','50%').css('margin-left', '25%');
 
         //Décalage du bouton ajouter
-        $('#add_visiteur').css('margin-left', '42%');
+        $('#add_visiteur').css('margin-left', '38%');
 
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
         var index = $container.find(':input').length;
@@ -142,7 +142,7 @@
             if(index != 0)
             {
                 $container.append('<hr class="testo">');
-                $('.testo').css('width', '70%');
+                $('.testo').css('width', '80%');
             }
 
 

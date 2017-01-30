@@ -31,7 +31,14 @@ class Calculprixbillet
                 $tarif = 'Tarif senior';
             }
 
-            if($visiteurAge->getTarifReduit()) // Si la case Tarif réduit est cochée.
+            //étudiant, employé du musée, d’un service du Ministère de la Culture, militaire, personne age supérieur 12 ans
+
+            if($visiteurAge->getTarifReduit() && $prix == 16) // Si la case Tarif réduit est cochée et que la personne à le plein tarif
+            {
+                $prix = 10;    //Prix billet de 10 euros
+                $tarif = "Tarif réduit";
+            }
+            elseif ($visiteurAge->getTarifReduit() && $prix == 12) // Si la case Tarif réduit est cochée et que la personne à le tarif sénior
             {
                 $prix = 10;    //Prix billet de 10 euros
                 $tarif = "Tarif réduit";

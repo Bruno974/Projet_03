@@ -4,6 +4,7 @@ namespace GB\LouvreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Formulaire
@@ -24,7 +25,7 @@ class Formulaire
 
     /**
      *
-     * @ORM\Column(name="calendrier", type="datetime")
+     * @ORM\Column(name="calendrier", type="date")
      */
     private $calendrier;
 
@@ -39,6 +40,7 @@ class Formulaire
      * @var string
      *
      * @ORM\Column(name="mail", type="string", length=255)
+     * @Assert\Length(min=2, minMessage="Le titre doit faire au moins {{ limit }} caractères.")
      */
     private $mail;
 
@@ -56,7 +58,7 @@ class Formulaire
 
     public function __construct()
     {
-       // $this->calendrier = new \DateTime();
+        //$this->calendrier = new \DateTime();
         $this->visiteurs = new ArrayCollection();
     }
 
@@ -186,6 +188,8 @@ class Formulaire
 
         return $this;
     }
+
+    
 
     /**
      * Set calendrier

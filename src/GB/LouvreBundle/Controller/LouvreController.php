@@ -12,11 +12,13 @@ use Symfony\Component\HttpFoundation\Response;
 
 class LouvreController extends Controller
 {
+    /*-----------------------------Pour la page d'accueil----------------------------*/
     public function accueilAction()
     {
         return $this->render('GBLouvreBundle:Louvre:accueil.html.twig');
     }
 
+    /*-------------------------Pour l'ajax ds le formulaire--------------------------------*/
     public function ajaxAction(Request $request, $date)
     {
         //Récupére le nombre de place restant grâce aux services
@@ -29,6 +31,7 @@ class LouvreController extends Controller
         return new Response('Problème avec Ajax', 400);
     }
 
+    /*-------------------------------Pour le formulaire---------------------------------------------*/
     public function formulaireAction(Request $request)
     {
         $formulaire = new Formulaire();
@@ -54,6 +57,8 @@ class LouvreController extends Controller
         return $this->render('GBLouvreBundle:Louvre:formulaire.html.twig', array('form' => $form->createView()));
     }
 
+
+    /*----------------------------------Pour le récapitulatif----------------------------------*/
     public function paiementAction($id)
     {
 
@@ -63,7 +68,7 @@ class LouvreController extends Controller
 
         $listVisiteurs = $em->getRepository('GBLouvreBundle:Visiteur')->findBy(array('formulaire' => $formulaire));
         $calendrier = $formulaire->getCalendrier(); //Récupére la date
-        $date = $calendrier->format('d:m:Y'); //formate la date en string
+        $date = $calendrier->format('d-m-Y'); //formate la date en string
         return $this->render('GBLouvreBundle:Louvre:prepare.html.twig', array(
             'formulaires' => $formulaire,
             'listVisiteur' => $listVisiteurs,
@@ -72,6 +77,7 @@ class LouvreController extends Controller
 
     }
 
+    /*-----------------------------------Pour stripe---------------------------------*/
     public function checkoutAction($id)
     {
         $form = $this->getDoctrine()->getManager()->getRepository('GBLouvreBundle:Formulaire')->find($id);
@@ -89,22 +95,14 @@ class LouvreController extends Controller
         {
             $this->addFlash("success","Paiement refusé");
         }
-        return $this->redirectToRoute("gb_louvre_accueil");
+        return $this->redirectToRoute("gb_louvre_recapitulatif");
     }
 
 
-    public function recapitulatifAction($id)
+    /*---------------------------------Pour la confirmation---------------------------------*/
+    public function recapitulatifAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $formulaire = $em->getRepository('GBLouvreBundle:Formulaire')->find($id);
-
-        $listVisiteurs = $em->getRepository('GBLouvreBundle:Visiteur')->findBy(array('formulaire' => $formulaire));
-
-        return $this->render('GBLouvreBundle:Louvre:recapitulatif.html.twig', array(
-            'formulaires' => $formulaire,
-            'listVisiteur' => $listVisiteurs
-        ));
+        return $this->render('GBLouvreBundle:Louvre:recapitulatif.html.twig');
     }
 }
 

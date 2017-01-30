@@ -36,7 +36,7 @@ header
 }
 
 /*-----------Titre:Formulaire de visite------------------------------------------------*/
-h2
+h1
 {
     font-size: 2.2em;
     margin-top: 1%;
@@ -74,6 +74,7 @@ h2
 {
     display: none;
     text-align: center;
+    font-size: 0.9em;
 }
 
 /*-----------Gérer les legend-----------------*/
@@ -97,7 +98,7 @@ hr
     margin-left: 25%;
 }
 
-/*-----Gérer fon formulaire__________*/
+/*-----Gérer fond formulaire__________*/
 .well
 {
     background-color: rgba(255, 255, 255, 0.6);

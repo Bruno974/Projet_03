@@ -1,36 +1,31 @@
 {% extends "GBLouvreBundle::layout.html.twig" %}
 
+{% block stylesheets_enfant %}
+    <link rel="stylesheet" href="{{ asset('css/recapitulatif.css') }}" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+
 {% block body %}
-    <section class="col-sm-8 col-sm-offset-2 table-responsive">
-        <table class="table table-bordered table-striped table-condensed well">
-            <caption>
-                <h4>Récapitulatif</h4>
-            </caption>
-            <thead>
-                <tr>
-                    <th>Visiteur</th>
-                    <th>Tarif</th>
-                    <th>Prix</th>
-                </tr>
-            </thead>
 
-            <tbody>
-                {#<p>Voici le résultat {{ formulaires.id }} </p>#}
-                <p>{% for visiteur in formulaires.visiteurs %}
-                        <tr>
-                        <td>{{ visiteur.nom }} {{ visiteur.prenom }}</td>
-                        <td>{{ visiteur.tarif }} </td>
-                            <td>{{ visiteur.prix }}</td>
-                        </tr>
-                    {% endfor %}
-                    <tr>
-                        <td></td>
-                        <td><strong>Total</strong></td>
-                        <td>{{ formulaires.total }}</td>
-                    </tr>
+    <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-12">
+                <div id="paiement" class="alert alert-success"><p><span class="glyphicon glyphicon-ok"></span><strong>   Paiement accepté</strong></p></div>
+            </div >
+        </div>
 
-                </p>
-            </tbody>
-        </table>
-    </section>
+        <div class="col-sm-6 col-sm-offset-3 well">
+            <div id="confirmation" class="col-sm-12">
+                <p><strong>Confirmation de votre commande:</strong></p>
+                <p>Vous allez reçevoir un mail avec vos billets</p>
+            </div >
+        </div>
+
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="col-sm-2 col-sm-offset-5">
+                <a href="{{ path('gb_louvre_accueil')  }}" class="btn btn-warning btn-lg btn-block">Retour</a>
+            </div >
+        </div>
+        
+    </div>
+
 {% endblock %}

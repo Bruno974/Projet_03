@@ -1,52 +1,62 @@
 {% extends "GBLouvreBundle::layout.html.twig" %}
 
-
+{% block stylesheets_enfant %}
+    <link rel="stylesheet" href="{{ asset('css/prepare.css') }}" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
 
 {% block body %}
-        <section class="col-sm-9 col-sm-offset-2 table-responsive">
+        <section class="col-sm-8 col-sm-offset-2 table-responsive">
             <table class="table table-bordered table-striped table-condensed well">
                 <caption>
-                    <h4>Récapitulatif de la visite du: {{ date }}</h4>
+                    <h4 class="well">Récapitulatif de la visite du: <strong>{{ date }}</strong></h4>
                 </caption>
                 <thead>
                 <tr>
-                    <th>Visiteur</th>
-                    <th>Tarif</th>
-                    <th>Prix</th>
+                    <th id="alignement">Visiteur</th>
+                    <th id="alignement">Tarif</th>
+                    <th id="alignement">Prix</th>
                 </tr>
                 </thead>
 
                 <tbody>
                 <p>{% for visiteur in formulaires.visiteurs %}
                         <tr>
-                            <td>{{ visiteur.nom }} {{ visiteur.prenom }}</td>
-                            <td>{{ visiteur.tarif }} </td>
-                            <td>{{ visiteur.prix }}</td>
+                            <td align="center">{{ visiteur.nom }} {{ visiteur.prenom }}</td>
+                            <td align="center">{{ visiteur.tarif }} </td>
+                            <td align="center">{{ visiteur.prix }}€</td>
                         </tr>
                     {% endfor %}
                     <tr>
                         <td></td>
-                        <td><strong>Total</strong></td>
-                        <td>{{ formulaires.total }}</td>
+                        <td align="center"><strong>Total</strong></td>
+                        <td align="center"><strong>{{ formulaires.total }}€</strong></td>
                     </tr>
-
                 </p>
                 </tbody>
             </table>
         </section>
     <div id="wrapper" class="col-sm-2 col-sm-offset-9">
-                <form action="{{ path('order_checkout', {'id': formulaires.id}) }}" method="POST">
-                    <script
-                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_faXwYxVSQ4pwdo1fprEvXRaS"
-                            data-amount="{{ formulaires.total *100}}" {# Prix qui s'affiche pour la validation, miltiplier par 100 pour avoir la valeur en euros#}
-                            data-name="Billetterie du Louvre"
-                            data-description="Widget"
-                            data-locale="auto"
-                            data-currency="eur">
-                    </script>
-                </form>
+        {#Version custom pour stripe pour pouvoir changer le nom du bouton#}
+        <script src="https://checkout.stripe.com/checkout.js"></script>
+
+        <form action="{{ path('order_checkout', {'id': formulaires.id}) }}" method="POST">
+            <script
+                    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                    data-image= 'https://stripe.com/img/documentation/checkout/marketplace.png', {#Mettre le petit icone vert#}
+                    data-key="pk_test_faXwYxVSQ4pwdo1fprEvXRaS"
+                    data-amount="{{ formulaires.total *100}}" {# Prix qui s'affiche pour la validation, miltiplier par 100 pour avoir la valeur en euros#}
+                    data-name="Billetterie du Louvre"
+                    data-description="" {#widget#}
+                    data-locale="auto"
+                    data-zip-code="true"
+                    data-currency="eur">
+            </script>
+        </form>
+
     </div>
+{% endblock %}
+{% block js_enfant %}
+    <script src="{{ asset('js/prepare.js') }}"></script>
 {% endblock %}
 
 {#
@@ -77,4 +87,7 @@
             .sf-toolbar { opacity: 0; -webkit-animation: fade-in 1s .2s forwards; animation: fade-in 1s .2s forwards;}
         }
     </style>
+
+
+
 {% endblock %}#}
