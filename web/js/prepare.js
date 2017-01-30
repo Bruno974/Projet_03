@@ -3,8 +3,6 @@
  */
 $(function() {
 
-    $('.stripe-button-el span:first').hide();
-
-
+    $('.stripe-button-el span:first').html('Payer');
 });
 

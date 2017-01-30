@@ -20,11 +20,11 @@ class FormulaireType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-           /* ->add('calendrier', DateType::class, array('widget' => 'single_text',
+            /*->add('calendrier', DateType::class, array('widget' => 'single_text',
                     // do not render as type="date", to avoid HTML5 date pickers
                     'html5' => true,
                     // add a class that can be selected in JavaScripts
-                    'attr' => ['class' => 'js-datepicker'],))*/
+                    'attr' => ['class' => 'datePicker'],))*/
            ->add('calendrier', DateType::class, array('widget' => 'single_text', 'html5' => true, 'format' => 'dd.MM.yyyy', 'attr' => ['class' => 'datePicker']))
             ->add('duree', ChoiceType::class, array('choices' => array(
                 'Journee' => '1',

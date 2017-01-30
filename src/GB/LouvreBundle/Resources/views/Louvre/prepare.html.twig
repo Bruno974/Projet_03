@@ -36,8 +36,6 @@
             </table>
         </section>
     <div id="wrapper" class="col-sm-2 col-sm-offset-9">
-        {#Version custom pour stripe pour pouvoir changer le nom du bouton#}
-        <script src="https://checkout.stripe.com/checkout.js"></script>
 
         <form action="{{ path('order_checkout', {'id': formulaires.id}) }}" method="POST">
             <script
