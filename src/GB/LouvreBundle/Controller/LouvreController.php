@@ -38,8 +38,8 @@ class LouvreController extends Controller
 
         $form = $this->get('form.factory')->create(FormulaireType::class, $formulaire);
 
-        $form->handleRequest($request);
-        if ($request->isMethod('POST') && ($form->isValid()))
+        //$form->handleRequest($request);
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) //($request->isMethod('POST') && ($form->isValid()))
         {
             //Récupére toutes les informations du formulaire visiteur et les liés au formulaire.
             foreach ($form->get('visiteurs')->getData() as $visiteur)
@@ -49,10 +49,9 @@ class LouvreController extends Controller
             }
 
             $em = $this->getDoctrine()->getManager();
-
             $em->persist($formulaire);
             $em->flush();
-            return $this->redirectToRoute('order_prepare', array('id' => $formulaire->getId())/*, array('test' => $placePrise)*/);  //gb_louvre_recapitulatif
+            return $this->redirectToRoute('order_prepare', array('id' => $formulaire->getId()));
         }
         return $this->render('GBLouvreBundle:Louvre:formulaire.html.twig', array('form' => $form->createView()));
     }

@@ -23,6 +23,7 @@ class VisiteurType extends AbstractType
             ->add('prenom', TextType::class)
             ->add('pays', CountryType::class, [
                 'label'  => 'Pays',
+                //'data' => 'France',
                 'placeholder' => 'Choisissez un pays',
             ])
             ->add('dateNaissance', BirthdayType::class)

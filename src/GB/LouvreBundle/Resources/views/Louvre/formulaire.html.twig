@@ -20,12 +20,12 @@
     {{ form_errors(form) }}
 
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
+        <div class=" col-lg-6 col-lg-offset-3">
             {#--------------------- Gestion calendrier --------------------#}
-            <div id="cadre" class="col-sm-8 col-sm-offset-2 well">
+            <div id="cadre" class="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2 well">
                 <legend>Calendrier</legend>
                 {{ form_errors(form.calendrier) }}
-                <div id= "calendrierJS" class="col-sm-6 col-sm-offset-2" >
+                <div id= "calendrierJS" class="col-md-6 col-md-offset-2 col-xs-6 col-xs-offset-2" >
                     {{ form_widget(form.calendrier, {'attr': {'placeholder': 'Choisissez une date' }}) }}
                 </div>
             </div>
@@ -89,11 +89,7 @@
     {{ form_rest(form) }}
     {{ form_end(form) }}
 
-{#<div class="well">
-    {{ form(form) }}
-    {{ form_row(form.visiteurs) }}
-    <a href="#" id="add_visiteur" class="btn btn-default">Ajouter un visiteur</a>
-</div>#}
+
 {% endblock %}
 
 {% block js_enfant %}

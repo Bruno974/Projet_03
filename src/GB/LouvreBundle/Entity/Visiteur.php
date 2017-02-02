@@ -2,8 +2,8 @@
 
 namespace GB\LouvreBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Visiteur
@@ -26,7 +26,7 @@ class Visiteur
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
-     * @Assert\Length(min=2, minMessage="Le titre doit faire au moins {{ limit }} caractères.")
+     * @Assert\Length(min=2, minMessage="Le nom doit faire au moins {{ limit }} caractère.")
      */
     private $nom;
 
@@ -34,7 +34,7 @@ class Visiteur
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=255)
-     * @Assert\Length(min=1)
+     * @Assert\Length(min=2, minMessage="Le prénom doit faire au moins {{ limit }} caractère.")
      */
     private $prenom;
 
@@ -76,6 +76,11 @@ class Visiteur
      * @ORM\JoinColumn(nullable=false)
      */
     private $formulaire;
+
+    public function __construct()
+    {
+        //$this->setPays('France');
+    }
 
 
     /**
@@ -279,6 +284,6 @@ class Visiteur
     {
         return $this->tarif;
     }
-
+    
 
 }

@@ -44,6 +44,11 @@ class Calculprixbillet
                 $tarif = "Tarif réduit";
             }
 
+            if($formulaire->getDuree() == 2) //Si la case demi-journée est cochée on divisie le prix par 2
+            {
+                $prix = $prix/2;
+            }
+
             //Hydrate prix
            $visiteurAge->setPrix($prix);
            //Calcul le total et hydrate total

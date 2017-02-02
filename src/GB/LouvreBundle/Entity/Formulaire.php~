@@ -52,6 +52,7 @@ class Formulaire
 
     /**
      * @ORM\OneToMany(targetEntity="GB\LouvreBundle\Entity\Visiteur", mappedBy="formulaire", cascade={"persist"})
+     *  @Assert\Valid()
      */
     private $visiteurs;
 

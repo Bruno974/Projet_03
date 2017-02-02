@@ -14,7 +14,7 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-sm-6 col-sm-offset-3 well">
+        <div class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 well">
             <p><strong>Vous allez pouvoir ici, grâce à cette application, acheter en avance vos billets
                     et ainsi éviter de faire la queue aux guichets,
                     le jour de votre visite. Allez-y cliquez sur le bouton Acheter et gagner du temps...</strong>
@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="row">
-        <div id="renseignements" class="col-sm-6 col-sm-offset-3 well">
+        <div id="renseignements" class="col-md-6 col-md-offset-3 col-xs-8 col-xs-offset-2 well">
             Le musée propose plusieurs types de tarifs :
             <ul>
                 <li>Un tarif « normal » à partir de 12 ans à 16 €</li>
@@ -35,17 +35,10 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-2 col-sm-offset-5">
+        <div class="col-md-2 col-md-offset-5 col-xs-4 col-xs-offset-4">
             <a href="{{ path('gb_louvre_billetterie')  }}" class="btn btn-warning btn-lg btn-block">Acheter</a>
         </div>
     </div>
-
-   {# <div>
-        {# On affiche tous les messages flash dont le nom est « info »
-        {% for message in app.session.flashbag.get('success') %}
-            <p>Message flash : {{ message }}</p>
-        {% endfor %}
-    </div>#}
 
 {% endblock %}
 

@@ -2,10 +2,10 @@
  * Created by Bruno on 03/01/2017.
  */
 $(function () {
-    var $container = $('div#gb_testbundle_visiteur_dateDeVisite');
+    var $container = $('div#gb_louvrebundle_formulaire_visiteurs');
     var index = $container.find(':input').length;
 
-   $('#add_formulaire').click(function(){
+   $('#add_visiteur').click(function(){
        AjoutVisiteur($container);
        e.preventDefault();
        return false;

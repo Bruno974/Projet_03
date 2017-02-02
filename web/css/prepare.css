@@ -25,3 +25,11 @@ header
 {
     width: 45%;
 }
+
+@media (min-width: 768px)
+{
+    #customButton
+    {
+        width: 75%;
+    }
+}
