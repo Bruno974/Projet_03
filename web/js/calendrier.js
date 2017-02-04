@@ -57,7 +57,7 @@ $(function() {
         var valDate = $('#gb_louvrebundle_formulaire_calendrier').val();//Récupère la valeur de la date.
         var date = jour + '.'  + mois + '.' + annee;//Mets au format la date du jour
 
-        if((valDate === date) && (heure >= 10) )//Compare la date sélectionner et la date du jour et si heure supérieur à 14h00
+        if((valDate === date) && (heure >= 8) )//Compare la date sélectionner et la date du jour et si heure supérieur à 14h00
         {
 
             $('#gb_louvrebundle_formulaire_duree_0').attr('disabled', 'disabled'); //Désactiver le radio Journée

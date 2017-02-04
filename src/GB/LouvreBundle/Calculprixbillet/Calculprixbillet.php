@@ -10,8 +10,10 @@ class Calculprixbillet
            /*A réfléchir mais il faut récupérer la date choisi pour le calcul*/
           //  $now = new \DateTime(); // créer la date du jour
         $now = $formulaire->getCalendrier();
-        var_dump($now);
+
             $age = $now->diff($dateNaissanceVisiteur)->y; //compare la date aujourd'hui et la date naissance et calcul la différence
+        //var_dump($age);
+
 
             $prix = 16;
             $tarif = 'Tarif normal';
@@ -49,13 +51,19 @@ class Calculprixbillet
                 $prix = $prix/2;
             }
 
+            /*--Pour tester si le prix est bien calculé(phpunit)------*/
+            //Décommenter le return uniquement lors des test
+            //return $prix;
+
             //Hydrate prix
            $visiteurAge->setPrix($prix);
            //Calcul le total et hydrate total
            $formulaire->calculTotal($prix);
            //Hydrate tarif
            $visiteurAge->setTarif($tarif);
+
     }
+
 
 }
 

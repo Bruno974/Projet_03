@@ -284,6 +284,6 @@ class Visiteur
     {
         return $this->tarif;
     }
-    
+
 
 }
