@@ -37,7 +37,3 @@ class CalculprixbilletTest extends WebTestCase
 }
 
 
-//$calc = new Calculprixbillet();
-//$form = new Formulaire()
-
-
