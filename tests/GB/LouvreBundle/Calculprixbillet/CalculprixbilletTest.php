@@ -28,6 +28,7 @@ class CalculprixbilletTest extends WebTestCase
 
         $formulaire = new Formulaire();
         $formulaire->setCalendrier(new \Datetime('2017-02-05'));
+        $formulaire->setDuree(1);
 
         $result = $this->calcul->calculPrix($visiteur, $formulaire);
 

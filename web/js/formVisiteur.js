@@ -9,37 +9,8 @@
 
         /*gestion ajax pour les 1000 billets*/
         $("#gb_louvrebundle_formulaire_calendrier").change(function(){
-            if($(this).val() != "") //Si champs calendrier différent de vide, pour éviter d'avoir un message d'erreur lors de l'ouverture de la page
-            {
-                $.ajax({
-                    url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $(this).val(),
-                    success: function(data) {
-                        if(data < 980) //Si nombre place disponible = 0
-                        {
-                            //Efface la date entrer et message erreur
-                            $('#Billets').attr('class','alert alert-danger');
-                            $('#Billets').html('Plus aucune place de libre, choisissez une autre date');
-                            $('#gb_louvrebundle_formulaire_calendrier').val('');
-
-                            /*--------Désactive le bouton ajout de visiteur________*/
-                            $('#add_visiteur').off('click');
-                        }
-                        else
-                        {
-                            //Affiche le nombre de place disponible
-                            $('#Billets').attr('class','alert alert-success');
-                            $('#Billets').html(data+' place(s) disponible(s)');
-
-                            reactive(); //Appelle la fonction reactive
-                        }
-                        /*-----------------*/
-                    },
-                    error: function() {
-                        alert('Erreur avec la requête Ajax'); }
-                });
-            }
+            ajax();//Fonction ajax pour calcul nbre de place disponible
         });
-
 
         // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
         var $container = $('div#gb_louvrebundle_formulaire_visiteurs');
@@ -55,8 +26,6 @@
 
 
         /*-----------------------------------Fonction du bouton ajouter------------------------------------------*/
-        function reactive()
-        {
             // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
             $('#add_visiteur').click(function(e)
             {
@@ -70,91 +39,17 @@
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
 
                 //Relance ajax pour incrémenter le compteur de places
-                $.ajax({
-                    url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $('#gb_louvrebundle_formulaire_calendrier').val(),
-                    success: function(data)
-                    {
-                        var recupNbreDisponible = data;
-                        var calculTempsReelNbrePlace = recupNbreDisponible - index;
-                        console.log(calculTempsReelNbrePlace);
+                ajax();
 
-                        if(calculTempsReelNbrePlace < 980) //Si nombre place disponible = 0
-                        {
-                            /*-------------Message d'erreur---------------------------*/
-                            $('#Billets').attr('class','alert alert-danger');
-                            $('#Billets').html('Plus aucune place de libre, choisissez une autre date');
-
-                            /*------------------Remet la valeur par défaut du champs date------------*/
-                            $('#gb_louvrebundle_formulaire_calendrier').val('');
-
-                            $('#add_visiteur').css('margin-left', '42%');
-                        }
-                        else
-                        {
-                            //Affiche le nombre de place disponible
-                            $('#Billets').attr('class','alert alert-success');
-                            $('#Billets').html(calculTempsReelNbrePlace+' place(s) disponible(s)');
-                        }
-                        /*--------------------------------------------------------------------------------------------*/
-                    },
-                    error: function()
-                    {
-                        alert('Erreur avec la requête Ajax');
-                    }
-                });
-                console.log(index);
-                /*-------en cours---------------------------------------------------------------------------------------------*/
-
-               /* if($compteur === 1) //Pour éviter une erreur lors du premier clic sur ajouter un visiteur
-                {
-                    //on ne fait rien
-
-                }
-                else
-                {
-
-                    $nouveauIndex = $compteur-2; //Pour mettre le compteur à 0, pour correspondre aux premier champs
-                    //testPassage($nouveauIndex);
-
-                    $nouveauIndexString = $nouveauIndex.toString(); //Convertir le nouveau Index
-                    $texteNom = $('#gb_louvrebundle_formulaire_visiteurs_' +  $nouveauIndexString + '_nom').val(); // Récupère la valeur entré ds l'input nom en cours
-                    $textePrenom = $('#gb_louvrebundle_formulaire_visiteurs_' +  $nouveauIndexString + '_prenom').val(); // Récupère la valeur entré ds l'input prénom en cours
-                    $longueurNom = $texteNom.length; // Récupère la longueur du nom
-                    $longueurPrenom = $textePrenom.length; // Récupéla longueur du prénom
-
-                    if($longueurNom < 2) //Si la longueur du nom < 2
-                    {
-                        alert('Erreur sur la longueur du nom:' + $longueurNom + 'compteur' + $nouveauIndex);
-                        $('#gb_louvrebundle_formulaire_visiteurs_' + $nouveauIndexString + '_nom').css('border-color', 'red');
-                        $('#gb_louvrebundle_formulaire_visiteurs_' +  $nouveauIndexString + '_nom').val('');
-                        //$('#add_visiteur').unb
-
-                    }
-
-                    if($longueurPrenom < 2)
-                    {
-                        alert('Erreur sur la longueur du prénom:' + $longueurPrenom  + 'compteur' + $nouveauIndex);
-                        $('#gb_louvrebundle_formulaire_visiteurs_' + $nouveauIndexString + '_prenom').css('border-color', 'red');
-                        $('#gb_louvrebundle_formulaire_visiteurs_' +  $nouveauIndexString + '_prenom').val('');
-                        //e.preventDefault();
-                    }
-                }
-
-              /*----passe----*/
-               /* $('#gb_louvrebundle_formulaire_visiteurs_0_nom').change(function(){
-
-                    alert('click');
-                });*/
-                /*-----------------------------------------------------------------------------------------------------------*/
                 return false;
             });
-        }
+        //}
         /*-------------------------------------------------------------------------------------------------------------*/
 
 
         /*-----------------------La fonction qui ajoute un formulaire-------------------------------------------------*/
         function addCategory($container) {
-           // var index = 0;
+           // index = 0;
             // Dans le contenu de l'attribut « data-prototype », on remplace :
             // - le texte "__name__label__" qu'il contient par le label du champ
             // - le texte "__name__" qu'il contient par le numéro du champ
@@ -169,19 +64,12 @@
             // On ajoute au prototype un lien pour pouvoir supprimer la catégorie
             addDeleteLink($prototype);  //voir pour récupérer index du delete
 
-            //Ajout d'un trait + modif taille du trait aprés le premier visiteur ajouté
-           /* if(index != 0)
-            {
-                $container.append('<hr class="testo">');
-                $('.testo').css('width', '80%');
-            }*/
-
-
             // On ajoute le prototype modifié à la fin de la balise <div>
             $container.append($prototype);
 
             // Enfin, on incrémente le compteur pour que le prochain ajout se fasse avec un autre numéro
             index++;
+
             return index;
         }
         /*------------------------------------------------------------------------------------------------------------*/
@@ -201,22 +89,70 @@
                 var strSplit = str.split(" ", 1); //A partir de la chaine on split pour garder que le nombre
                 var NbrePlaceApresSuppression = parseInt(strSplit) + 1; //On convertit la chaine en string et on calcul
                 $('#Billets').html(NbrePlaceApresSuppression+' place(s) disponible(s)');
+
                 $prototype.remove();
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
                 index --; //Décrémente l'index;
                 console.log("enleve: " + index);
+
+                if(NbrePlaceApresSuppression >= 995)
+                {
+                    $('#Billets').attr('class', 'alert alert-success');
+                    $('#add_visiteur').css('display', 'inline');
+                }
+
+                // aprés suppression du dernier visiteur, on cache le bouton valider pour empêcher la validation
+                if(index === 0) // a voir pour rajouter quand on arrive à !à place de disponible
+                {
+                    $('#gb_louvrebundle_formulaire_Valider').css('display', 'none');
+                }
                 return false;
             });
         }
         /*------------------------------------------------------------------------------------------------------------*/
 
+        /*--------------------------------------Fonction ajax---------------------------------------------------------*/
+            function ajax()
+            {
+                if($('#gb_louvrebundle_formulaire_calendrier').val() != "") //Si champs calendrier différent de vide, pour éviter d'avoir un message d'erreur lors de l'ouverture de la page
+                {
+                    $.ajax({
+                        url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $('#gb_louvrebundle_formulaire_calendrier').val(),
+                        success: function (data) {
+                            var recupNbreDisponible = data;
+                            var calculTempsReelNbrePlace = recupNbreDisponible - index;
+                            console.log('Nbre place:' + calculTempsReelNbrePlace);
 
-        function testPassage($compteurCours)
-        {
-            alert($compteurCours);
-             $('#gb_louvrebundle_formulaire_visiteurs_0_nom').change(function(){
+                            if (calculTempsReelNbrePlace <= 995) //Si nombre place disponible = 0
+                            {
+                                /*-------------Message d'erreur---------------------------*/
+                                $('#Billets').attr('class', 'alert alert-danger');
+                                $('#Billets').html(calculTempsReelNbrePlace + ' place(s) disponible(s)');
 
-             alert('click');
-             });
-        }
+                                /*------------------Remet la valeur par défaut du champs date------------*/
+                               // $('#gb_louvrebundle_formulaire_calendrier').val('');
+
+                                $('#add_visiteur').css('display', 'none');
+                            }
+                            else {
+                                //Affiche le nombre de place disponible
+                                $('#Billets').attr('class', 'alert alert-success');
+                                $('#Billets').html(calculTempsReelNbrePlace + ' place(s) disponible(s)');
+                                $('#add_visiteur').css('display', 'inline');
+                            }
+                            /*--------------------------------------------------------------------------------------------*/
+                        },
+                        error: function () {
+                            alert('Erreur avec la requête Ajax');
+                        }
+                    });
+                }
+            }
+        /*------------------------------------------------------------------------------------------------------------*/
+
     });
+
+
+//bloquer le compteur à 1000 aprés suppression  des visiteurs, aprés changement d'une date
+//Si on change de date aprés 995 sur une date le bouton ajouter n'apparaît pas
+//Décaler les conditions

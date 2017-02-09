@@ -7,7 +7,7 @@ use GB\LouvreBundle\Entity\Formulaire;
 use GB\LouvreBundle\Entity\Visiteur;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class CalculprixbilletTest extends WebTestCase
+class AjaxTest extends WebTestCase
 {
     private $client;
     private $ajax;
