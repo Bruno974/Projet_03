@@ -50,13 +50,13 @@ h1
 /*---------------Decaler radio journée vers la gauche---------------------------------------------------*/
 #gb_louvrebundle_formulaire_duree_0
 {
-    margin-left: -450%;
+    margin-left: -250%;
 }
 
 /*------------Decaler l'ensemble des radio pour les centrer----------------------------------------------*/
 #gb_louvrebundle_formulaire_duree
 {
-    margin-left: 40%;
+    margin-left: 50%;
     font-size: 1.2em;
 }
 
@@ -119,6 +119,8 @@ hr
     font-weight: bold;
     text-shadow: black 0.1em 0.1em 0.2em;
 }
+
+
 
 
 

@@ -35,6 +35,7 @@
                 //Faire apparaître les conditions
                 $('#Justificatif').css('display', 'block');
 
+
                 $compteur = addCategory($container);
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
 
@@ -154,5 +155,4 @@
 
 
 //bloquer le compteur à 1000 aprés suppression  des visiteurs, aprés changement d'une date
-//Si on change de date aprés 995 sur une date le bouton ajouter n'apparaît pas
 //Décaler les conditions

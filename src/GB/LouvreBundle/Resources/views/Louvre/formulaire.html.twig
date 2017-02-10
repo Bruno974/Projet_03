@@ -43,7 +43,7 @@
             <div class="col-sm-8 col-sm-offset-2 well">
                 <legend>Durée de la visite</legend>
                 {{ form_errors(form.duree) }}
-                <div class="col-sm-8 col-sm-offset-4">
+                <div class="col-sm-12">
                     {{ form_widget(form.duree, {'attr': {'class': 'form-inline jour'}}) }}
                 </div>
             </div>
@@ -79,7 +79,9 @@
 
             {#-------------- Gestion du bouton valider ------------#}
             <div class="col-sm-12">
+                 <div class="col-sm-6 col-sm-offset-2">
                 <p id="Justificatif">* Sur présentation des pièces justificatives</p>
+                </div>
                 {{ form_widget(form.Valider, {'attr': {'class': 'btn btn-warning btn-lg valider'}})}}
             </div>
             {#------------------------------------------------------------#}
