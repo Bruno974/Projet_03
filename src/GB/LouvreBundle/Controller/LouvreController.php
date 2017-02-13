@@ -28,6 +28,7 @@ class LouvreController extends Controller
         {
             return new Response($placePrise);
         }
+
         return new Response('Problème avec Ajax', 400);
     }
 
@@ -82,7 +83,7 @@ class LouvreController extends Controller
         $form = $this->getDoctrine()->getManager()->getRepository('GBLouvreBundle:Formulaire')->find($id);
         $test=$this->get('gb_louvre.stripe')->stripe($form->getTotal());
 
-        /*-------------Gérer les messages flash selon le peiement---------------*/
+        /*-------------Gérer les messages flash selon le paiement---------------*/
         if($test === 1)
         {
             $this->addFlash("success","Paiement accepté");

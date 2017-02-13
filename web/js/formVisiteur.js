@@ -4,9 +4,6 @@
 
     $(function() {
 
-        //Cache le bouton valider lors du chargement de la page
-        $('#gb_louvrebundle_formulaire_Valider').css('display', 'none');
-
         /*gestion ajax pour les 1000 billets*/
         $("#gb_louvrebundle_formulaire_calendrier").change(function(){
             ajax();//Fonction ajax pour calcul nbre de place disponible
@@ -22,8 +19,17 @@
         $('#add_visiteur').css('margin-left', '38%');
 
         // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
-        var index = $container.find(':input').length;
+        var index = $container.find(':checkbox').length; //compte le nombre de checkbox pour savoir le nbre de visiteur
 
+        //Si l'index = 0 donc on n'a pas ajouter de visiteur, on cache le bouton Valider
+        if(index == 0)
+         {
+             $('#gb_louvrebundle_formulaire_Valider').css('display', 'none');
+         }
+         else
+         {
+            $('#gb_louvrebundle_formulaire_Valider').css('display', 'inline');
+         }
 
         /*-----------------------------------Fonction du bouton ajouter------------------------------------------*/
             // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
@@ -35,8 +41,7 @@
                 //Faire apparaître les conditions
                 $('#Justificatif').css('display', 'block');
 
-
-                $compteur = addCategory($container);
+                addCategory($container);
                 e.preventDefault(); // évite qu'un # apparaisse dans l'URL
 
                 //Relance ajax pour incrémenter le compteur de places
@@ -103,9 +108,10 @@
                 }
 
                 // aprés suppression du dernier visiteur, on cache le bouton valider pour empêcher la validation
-                if(index === 0) // a voir pour rajouter quand on arrive à !à place de disponible
+                if(index === 0)
                 {
                     $('#gb_louvrebundle_formulaire_Valider').css('display', 'none');
+                    $('#Justificatif').css('display', 'none');
                 }
                 return false;
             });
@@ -120,6 +126,7 @@
                     $.ajax({
                         url: 'http://localhost/imbriquer/web/app_dev.php/billetterie/formulaire/ajax/' + $('#gb_louvrebundle_formulaire_calendrier').val(),
                         success: function (data) {
+                            console.log(index);
                             var recupNbreDisponible = data;
                             var calculTempsReelNbrePlace = recupNbreDisponible - index;
                             console.log('Nbre place:' + calculTempsReelNbrePlace);
@@ -129,10 +136,7 @@
                                 /*-------------Message d'erreur---------------------------*/
                                 $('#Billets').attr('class', 'alert alert-danger');
                                 $('#Billets').html(calculTempsReelNbrePlace + ' place(s) disponible(s)');
-
-                                /*------------------Remet la valeur par défaut du champs date------------*/
-                               // $('#gb_louvrebundle_formulaire_calendrier').val('');
-
+                                /*-----------Cache le bouton Ajouter, ainsi on bloque l'ajout de visiteur---------*/
                                 $('#add_visiteur').css('display', 'none');
                             }
                             else {
@@ -153,6 +157,3 @@
 
     });
 
-
-//bloquer le compteur à 1000 aprés suppression  des visiteurs, aprés changement d'une date
-//Décaler les conditions

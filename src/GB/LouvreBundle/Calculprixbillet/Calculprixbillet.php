@@ -7,17 +7,12 @@ class Calculprixbillet
     {
             $dateNaissanceVisiteur = $visiteurAge->getDateNaissance(); // récupère date naissance du visiteur
 
-           /*A réfléchir mais il faut récupérer la date choisi pour le calcul*/
-          //  $now = new \DateTime(); // créer la date du jour
-        $now = $formulaire->getCalendrier();
+            $now = $formulaire->getCalendrier(); //récupère la date de la visite choisi
 
-            $age = $now->diff($dateNaissanceVisiteur)->y; //compare la date aujourd'hui et la date naissance et calcul la différence
-        //var_dump($age);
-
+            $age = $now->diff($dateNaissanceVisiteur)->y; //compare la date choisi et la date naissance et calcul la différence
 
             $prix = 16;
             $tarif = 'Tarif normal';
-
 
             if ($age < 4)
             {
