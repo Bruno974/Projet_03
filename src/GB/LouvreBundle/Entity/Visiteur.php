@@ -27,6 +27,11 @@ class Visiteur
      *
      * @ORM\Column(name="nom", type="string", length=255)
      * @Assert\Length(min=2, minMessage="Le nom doit faire au moins {{ limit }} caractère.")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre nom ne peut pas contenir de chiffres"
+     * )
      */
     private $nom;
 
@@ -35,6 +40,11 @@ class Visiteur
      *
      * @ORM\Column(name="prenom", type="string", length=255)
      * @Assert\Length(min=2, minMessage="Le prénom doit faire au moins {{ limit }} caractère.")
+     * @Assert\Regex(
+     *     pattern="/\d/",
+     *     match=false,
+     *     message="Votre prénom ne peut pas contenir de chiffres"
+     * )
      */
     private $prenom;
 
