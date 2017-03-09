@@ -48,7 +48,7 @@ class Calculprixbillet
 
             /*--Pour tester si le prix est bien calculé(phpunit)------*/
             //Décommenter le return uniquement lors des test
-           // return $prix;
+            //return $prix;
 
             //Hydrate prix
            $visiteurAge->setPrix($prix);

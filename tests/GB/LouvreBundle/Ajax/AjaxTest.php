@@ -21,10 +21,10 @@ class AjaxTest extends WebTestCase
 
     public function testMilleBillets()
     {
-        $result = $this->ajax->milleBillets('2017-02-15');  //A ce jour, il y a 997 places de disponible
+        $result = $this->ajax->milleBillets('2017-03-17');  //A ce jour, il y a 997 places de disponible
 
         // assert that your calculator added the numbers correctly!
-        $this->assertEquals(997, $result);
+        $this->assertEquals(999, $result);
     }
 }
 
